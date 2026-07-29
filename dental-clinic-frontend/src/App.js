@@ -8,6 +8,7 @@ import PatientForm from './pages/Admin/PatientForm';
 import PatientDetails from './pages/Admin/PatientDetails';
 import AppointmentList from './pages/Admin/AppointmentList';
 import AppointmentForm from './pages/Admin/AppointmentForm';
+import AppointmentDetails from './pages/Admin/AppointmentDetails';
 
 function App() {
   return (
@@ -88,10 +89,7 @@ function App() {
             path="/admin/appointments/:id"
             element={
               <AdminNavbar>
-                <div style={{ padding: '40px', textAlign: 'center' }}>
-                  <h2>Appointment Details</h2>
-                  <p>Appointment details view coming soon...</p>
-                </div>
+                <AppointmentDetails />
               </AdminNavbar>
             }
           />
