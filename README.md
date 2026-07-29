@@ -226,4 +226,410 @@ Frontend
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 
+Backend
+┌─────────────────────────────────────────────────────────────┐
+│                    BACKEND STACK                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ☕ Java 21                  - Programming Language        │
+│  🍃 Spring Boot 3.4.1       - Framework                   │
+│  🗄️ Spring Data JPA         - ORM / Database Access       │
+│  🔒 Spring Security         - Authentication & Auth       │
+│  🛡️ JWT                     - Token-Based Security        │
+│  🐬 MySQL 8.x               - Database                    │
+│  📦 Maven                   - Build Tool                  │
+│  🔄 Hibernate               - ORM Implementation          │
+│  ✅ Validation              - Input Validation            │
+│  🧪 JUnit 5                 - Testing                     │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 
+Development Tools
+
+┌─────────────────────────────────────────────────────────────┐
+│                    DEVELOPMENT TOOLS                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  💻 VS Code                 - Code Editor                  │
+│  🧰 IntelliJ IDEA           - Java IDE                    │
+│  🐳 Docker                  - Containerization (Optional)  │
+│  📦 npm / Maven             - Package Managers             │
+│  🔧 Postman                 - API Testing                  │
+│  🗄️ phpMyAdmin             - Database Management          │
+│  🌐 XAMPP / WAMP            - Local Development            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Project Structure
+Frontend Structure
+dental-clinic-frontend/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── api/
+│   │   ├── axiosConfig.js
+│   │   └── endpoints.js
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Navbar.css
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── Sidebar.css
+│   │   │   ├── Footer.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── LoadingSpinner.jsx
+│   │   ├── admin/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Patients/
+│   │   │   ├── Appointments/
+│   │   │   ├── Billing/
+│   │   │   ├── Reports/
+│   │   │   ├── Staff/
+│   │   │   ├── Dentists/
+│   │   │   ├── Treatments/
+│   │   │   ├── Settings/
+│   │   │   └── Audit/
+│   │   ├── receptionist/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Patients/
+│   │   │   ├── Appointments/
+│   │   │   ├── Billing/
+│   │   │   └── Reports/
+│   │   ├── dentist/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Schedule/
+│   │   │   ├── Patients/
+│   │   │   ├── Appointments/
+│   │   │   ├── ClinicalNotes/
+│   │   │   └── Reports/
+│   │   └── patient/
+│   │       ├── Dashboard/
+│   │       ├── Appointments/
+│   │       ├── Bills/
+│   │       ├── Profile/
+│   │       ├── MedicalRecords/
+│   │       └── Help/
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   └── ThemeContext.jsx
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   └── useFetch.js
+│   ├── utils/
+│   │   ├── validators.js
+│   │   ├── helpers.js
+│   │   └── constants.js
+│   ├── styles/
+│   │   ├── global.css
+│   │   └── variables.css
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+├── package-lock.json
+└── README.md
+
+Backend Structure
+dental-clinic-backend/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── sunrise/
+│       │           └── dentalclinic/
+│       │               ├── DentalClinicApplication.java
+│       │               ├── entity/
+│       │               │   ├── User.java
+│       │               │   ├── Patient.java
+│       │               │   ├── Dentist.java
+│       │               │   ├── TreatmentType.java
+│       │               │   ├── Appointment.java
+│       │               │   └── Bill.java
+│       │               ├── repository/
+│       │               │   ├── UserRepository.java
+│       │               │   ├── PatientRepository.java
+│       │               │   ├── DentistRepository.java
+│       │               │   ├── TreatmentTypeRepository.java
+│       │               │   ├── AppointmentRepository.java
+│       │               │   └── BillRepository.java
+│       │               ├── service/
+│       │               │   ├── UserService.java
+│       │               │   ├── PatientService.java
+│       │               │   ├── DentistService.java
+│       │               │   ├── AppointmentService.java
+│       │               │   ├── BillingService.java
+│       │               │   └── ReportService.java
+│       │               ├── controller/
+│       │               │   ├── AuthController.java
+│       │               │   ├── PatientController.java
+│       │               │   ├── AppointmentController.java
+│       │               │   ├── BillingController.java
+│       │               │   └── ReportController.java
+│       │               ├── dto/
+│       │               │   ├── LoginRequest.java
+│       │               │   ├── LoginResponse.java
+│       │               │   ├── AppointmentRequest.java
+│       │               │   ├── AppointmentResponse.java
+│       │               │   └── ...
+│       │               ├── config/
+│       │               │   ├── SecurityConfig.java
+│       │               │   ├── CorsConfig.java
+│       │               │   ├── JwtTokenUtil.java
+│       │               │   ├── JwtAuthenticationFilter.java
+│       │               │   └── CustomUserDetailsService.java
+│       │               ├── exception/
+│       │               │   ├── GlobalExceptionHandler.java
+│       │               │   └── BusinessRuleException.java
+│       │               └── util/
+│       │                   └── PasswordValidator.java
+│       └── resources/
+│           ├── application.properties
+│           ├── application-dev.properties
+│           └── application-prod.properties
+├── pom.xml
+└── README.md
+
+Pages & Routes
+Full Route Structure
+┌─────────────────────────────────────────────────────────────┐
+│                    ROUTE STRUCTURE                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  PUBLIC ROUTES                                              │
+│  ├── /login                    → Login Page                │
+│  └── /register                 → Register Page             │
+│                                                             │
+│  ADMIN ROUTES (/admin/*)                                   │
+│  ├── /dashboard                → Admin Dashboard           │
+│  ├── /patients                 → Patient List              │
+│  ├── /patients/new             → Add Patient               │
+│  ├── /patients/:id             → Patient Details           │
+│  ├── /patients/:id/edit        → Edit Patient              │
+│  ├── /appointments             → Appointment List          │
+│  ├── /appointments/new         → Book Appointment          │
+│  ├── /appointments/:id         → Appointment Details       │
+│  ├── /schedule                 → Daily Schedule            │
+│  ├── /billing                  → Bill List                 │
+│  ├── /billing/new              → Generate Bill             │
+│  ├── /billing/:id              → Bill Details              │
+│  ├── /reports                  → Report Dashboard          │
+│  ├── /reports/revenue          → Revenue Report            │
+│  ├── /reports/schedule         → Schedule Report           │
+│  ├── /reports/patients         → Patient Report            │
+│  ├── /staff                    → Staff List                │
+│  ├── /staff/new                → Add Staff                 │
+│  ├── /staff/:id                → Staff Details             │
+│  ├── /dentists                 → Dentist List              │
+│  ├── /dentists/new             → Add Dentist               │
+│  ├── /treatments               → Treatment List            │
+│  ├── /treatments/new           → Add Treatment             │
+│  ├── /settings/clinic          → Clinic Settings           │
+│  ├── /settings/permissions     → User Permissions          │
+│  ├── /audit/activity           → Activity Log              │
+│  └── /audit/login              → Login History             │
+│                                                             │
+│  RECEPTIONIST ROUTES (/receptionist/*)                     │
+│  ├── /dashboard                → Receptionist Dashboard    │
+│  ├── /patients                 → Patient List              │
+│  ├── /patients/new             → Add Patient               │
+│  ├── /patients/:id             → Patient Details           │
+│  ├── /appointments             → Appointment List          │
+│  ├── /appointments/new         → Book Appointment          │
+│  ├── /appointments/:id         → Appointment Details       │
+│  ├── /schedule                 → Daily Schedule            │
+│  ├── /checkin/:id              → Patient Check-in          │
+│  ├── /billing                  → Bill List                 │
+│  ├── /billing/new              → Generate Bill             │
+│  ├── /billing/:id              → Bill Details              │
+│  ├── /reports/daily            → Daily Summary Report      │
+│  ├── /reports/appointments     → Appointment Report        │
+│  ├── /profile                  → View Profile              │
+│  └── /profile/edit             → Edit Profile              │
+│                                                             │
+│  DENTIST ROUTES (/dentist/*)                                │
+│  ├── /dashboard                → Dentist Dashboard         │
+│  ├── /schedule/daily           → Daily Schedule            │
+│  ├── /schedule/week            → Week Schedule             │
+│  ├── /appointments/:id         → Appointment Details       │
+│  ├── /patients                 → My Patients               │
+│  ├── /patients/:id             → Patient Details           │
+│  ├── /appointments/today       → Today's Appointments      │
+│  ├── /appointments/upcoming    → Upcoming Appointments     │
+│  ├── /notes/new/:id            → Add Treatment Notes       │
+│  ├── /history/:id              → Patient History           │
+│  ├── /reports/performance      → Performance Report        │
+│  ├── /reports/treatments       → Treatment Report          │
+│  ├── /profile                  → View Profile              │
+│  └── /profile/edit             → Edit Profile              │
+│                                                             │
+│  PATIENT ROUTES (/patient/*)                                │
+│  ├── /dashboard                → Patient Dashboard         │
+│  ├── /appointments/upcoming    → Upcoming Appointments     │
+│  ├── /appointments/past        → Past Appointments         │
+│  ├── /appointments/:id         → Appointment Details       │
+│  ├── /bills                    → Bill List                 │
+│  ├── /bills/:id                → Bill Details              │
+│  ├── /profile                  → View Profile              │
+│  ├── /profile/edit             → Edit Profile              │
+│  ├── /medical-history          → Medical History           │
+│  ├── /treatments               → Treatment History         │
+│  ├── /faq                      → FAQ                       │
+│  └── /contact                  → Contact Clinic            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Getting Started
+Prerequisites
+# Required Software
+Node.js v18+
+Java JDK 21
+MySQL 8.x
+Maven 3.9+
+Git
+XAMPP / WAMP (for local development)
+
+
+Installation
+1. Clone the Repository
+bash
+git clone https://github.com/yourusername/sunrise-dental-clinic.git
+cd sunrise-dental-clinic
+2. Backend Setup
+bash
+# Navigate to backend
+cd dental-clinic-backend
+
+# Update application.properties with your MySQL credentials
+# Create database: sunrise_dental
+
+# Build the project
+mvn clean install
+
+# Run the application
+mvn spring-boot:run
+3. Frontend Setup
+bash
+# Navigate to frontend
+cd dental-clinic-frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+4. Database Setup
+sql
+-- Create database
+CREATE DATABASE IF NOT EXISTS sunrise_dental;
+USE sunrise_dental;
+
+-- Run the schema.sql file
+-- This creates all tables and inserts sample data
+Running the Application
+bash
+# Terminal 1 - Backend (Spring Boot)
+cd dental-clinic-backend
+mvn spring-boot:run
+# Runs on: http://localhost:8080
+
+# Terminal 2 - Frontend (React)
+cd dental-clinic-frontend
+npm start
+# Runs on: http://localhost:3000
+
+# Access the application
+# Open: http://localhost:3000
+
+API Endpoints
+Authentication
+Method	Endpoint	Description
+POST	/api/auth/login	User login
+POST	/api/auth/register	User registration
+POST	/api/auth/logout	User logout
+GET	/api/auth/me	Get current user
+Patients
+Method	Endpoint	Description
+GET	/api/patients	Get all patients
+GET	/api/patients/{id}	Get patient by ID
+POST	/api/patients	Create patient
+PUT	/api/patients/{id}	Update patient
+DELETE	/api/patients/{id}	Delete patient
+GET	/api/patients/search	Search patients
+Appointments
+Method	Endpoint	Description
+GET	/api/appointments	Get all appointments
+GET	/api/appointments/{id}	Get appointment by ID
+POST	/api/appointments	Create appointment
+PUT	/api/appointments/{id}	Update appointment
+DELETE	/api/appointments/{id}	Delete appointment
+GET	/api/appointments/daily/{date}	Get daily schedule
+GET	/api/appointments/patient/{id}	Get patient appointments
+POST	/api/appointments/check	Check availability
+Billing
+Method	Endpoint	Description
+GET	/api/bills	Get all bills
+GET	/api/bills/{id}	Get bill by ID
+POST	/api/bills	Generate bill
+PUT	/api/bills/{id}/pay	Process payment
+GET	/api/bills/patient/{id}	Get patient bills
+Reports
+Method	Endpoint	Description
+GET	/api/reports/revenue	Revenue report
+GET	/api/reports/schedule	Schedule report
+GET	/api/reports/patients	Patient report
+GET	/api/reports/performance/{id}	Dentist performance
+
+Database Schema
+Entity Relationship Diagram
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         DATABASE SCHEMA                                │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ┌─────────────┐         ┌─────────────────┐         ┌─────────────┐  │
+│  │    users    │         │    patients     │         │  dentists   │  │
+│  ├─────────────┤         ├─────────────────┤         ├─────────────┤  │
+│  │ user_id (PK)│         │ patient_id (PK) │         │dentist_id(PK)│  │
+│  │ username    │◄────────│ patient_id (FK) │         │ name        │  │
+│  │ password    │         │ name            │         │specialization│  │
+│  │ role        │         │ address         │◄────────│dentist_id(FK)│  │
+│  │ full_name   │         │ contact_number  │         │ is_active   │  │
+│  │ is_active   │         │ email           │         │ created_at  │  │
+│  │ created_at  │         │ password_hash   │         └─────────────┘  │
+│  └─────────────┘         │ medical_history │                           │
+│                           │ created_at      │         ┌─────────────┐  │
+│                           └─────────────────┘         │treatments   │  │
+│                                    │                  ├─────────────┤  │
+│                                    │                  │treatment_id │  │
+│                                    ▼                  │ name        │  │
+│                           ┌─────────────────┐         │ base_cost   │  │
+│                           │  appointments   │         │consult_fee  │  │
+│                           ├─────────────────┤         │ is_active   │  │
+│                           │appointment_num  │         └─────────────┘  │
+│                           │ patient_id (FK) │                  │       │
+│                           │ dentist_id (FK) │◄─────────────────┘       │
+│                           │ treatment_id(FK)│                         │
+│                           │ appointment_date│         ┌─────────────┐  │
+│                           │ appointment_time│         │    bills    │  │
+│                           │ status          │         ├─────────────┤  │
+│                           │ notes           │◄────────│appointment  │  │
+│                           │ created_at      │         │consult_fee  │  │
+│                           └─────────────────┘         │treatment_cost│  │
+│                                                        │total_amount │  │
+│                                                        │is_paid      │  │
+│                                                        │payment_date │  │
+│                                                        └─────────────┘  │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Color Palette Quick Reference
+PRIMARY COLORS:
+  Dark Teal     #2F3E3C    (Text, Headings, Navbar)
+  Soft Mint     #BDDBD1    (Buttons, Success States)
+  Light Sage    #E7E9E3    (Cards, Backgrounds)
+  Cream White   #FBF9F1    (Main Background)
+
+ACCENT COLORS:
+  Ice Blue      #E8F0F1    (Secondary Buttons, Borders)
+  Sky Blue      #C7E7EC    (Accents, Hover Effects)
+  
