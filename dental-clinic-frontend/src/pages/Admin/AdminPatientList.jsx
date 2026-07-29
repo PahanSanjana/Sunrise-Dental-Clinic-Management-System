@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import './AdminPatientList.css';
+import '../Css/AdminPatientList.css';
 
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './PatientForm.css';
+import '../Css/PatientForm.css';
 
 // ---------------------------------------------------------------
 // Icons
@@ -137,7 +137,7 @@ const PatientForm = () => {
       await new Promise((resolve) => setTimeout(resolve, 800));
 
       setSuccessMessage('Patient registered successfully! Redirecting to Patient List...');
-      
+
       setTimeout(() => {
         navigate('/admin/patients');
       }, 1200);
@@ -193,7 +193,7 @@ const PatientForm = () => {
 
         {/* Main Form */}
         <form onSubmit={handleSubmit} className="pf-form" noValidate>
-          
+
           {/* Section 1: Personal Details */}
           <div className="glass-card pf-section">
             <div className="pf-section-header">

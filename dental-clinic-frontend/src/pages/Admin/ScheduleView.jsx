@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ScheduleView.css';
+import '../Css/ScheduleView.css';
 
 // ---------------------------------------------------------------
 // Icons

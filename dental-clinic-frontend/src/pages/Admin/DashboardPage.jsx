@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import './Dashboard.css';
+import '../Css/Dashboard.css';
 
 // ---------------------------------------------------------------
 // Icons (inline, single-stroke line style to match the login page)

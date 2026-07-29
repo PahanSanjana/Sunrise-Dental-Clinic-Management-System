@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './PatientDetails.css';
+import '../Css/PatientDetails.css';
 
 // ---------------------------------------------------------------
 // Icons

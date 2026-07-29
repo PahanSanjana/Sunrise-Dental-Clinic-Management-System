@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './AppointmentDetails.css';
+import '../Css/AppointmentDetails.css';
 
 // ---------------------------------------------------------------
 // Icons
