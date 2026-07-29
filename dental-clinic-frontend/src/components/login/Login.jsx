@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
-import './Login.css';
+import { useNavigate } from 'react-router-dom';
+import '../Css/Login.css';
+
+// Dummy User Base for Admin, Dentist, Patient, Receptionist
+const DUMMY_USERS = [
+  { role: 'Admin', email: 'admin@sunrisedental.com', password: 'admin123', route: '/admin/dashboard' },
+  { role: 'Dentist', email: 'dentist@sunrisedental.com', password: 'dentist123', route: '/dentist/dashboard' },
+  { role: 'Patient', email: 'patient@sunrisedental.com', password: 'patient123', route: '/patient/dashboard' },
+  { role: 'Receptionist', email: 'receptionist@sunrisedental.com', password: 'reception123', route: '/receptionist/dashboard' }
+];
 
 const Login = () => {
-  // State for form fields
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  // Default to Admin dummy user for convenience
+  const [selectedRole, setSelectedRole] = useState('Admin');
+  const [email, setEmail] = useState(DUMMY_USERS[0].email);
+  const [password, setPassword] = useState(DUMMY_USERS[0].password);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+
+  // Handle role selection / dummy prefill
+  const handleSelectRole = (user) => {
+    setSelectedRole(user.role);
+    setEmail(user.email);
+    setPassword(user.password);
+    setError('');
+    setSuccessMessage('');
+  };
 
   // Validation functions
   const validateEmail = (email) => {
@@ -49,17 +70,27 @@ const Login = () => {
     setLoading(true);
 
     try {
-      // SIMULATED API CALL - Replace with actual API later
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Simulate API verification
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      // Simulate successful login
-      setSuccessMessage('Welcome back! Redirecting...');
+      // Match user by email or selected role
+      const matchedUser = DUMMY_USERS.find(
+        u => u.email.toLowerCase() === email.toLowerCase() || u.role.toLowerCase() === selectedRole.toLowerCase()
+      ) || { role: selectedRole, route: selectedRole === 'Admin' ? '/admin/dashboard' : `/${selectedRole.toLowerCase()}/dashboard` };
 
-      console.log('Login successful!', { email, password, rememberMe });
+      setSuccessMessage(`Login successful as ${matchedUser.role}! Redirecting...`);
+
+      // Redirect to target route
+      setTimeout(() => {
+        if (matchedUser.role === 'Admin' || email.toLowerCase().includes('admin')) {
+          navigate('/admin/dashboard');
+        } else {
+          navigate(matchedUser.route || '/admin/dashboard');
+        }
+      }, 1000);
 
     } catch (err) {
       setError('An error occurred during login. Please try again.');
-    } finally {
       setLoading(false);
     }
   };
@@ -84,7 +115,7 @@ const Login = () => {
             {/* Logo */}
             <div className="logo">
               <svg className="user" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3c-2.1 0-3.2 1.1-4.5 1.1-1.6 0-2.8-1-3.7 0-.9 1-.6 2.8-.3 4.3.4 2.1.9 4.4 1.6 6.4.5 1.5 1 3.2 2.1 3.2 1.2 0 1.3-1.8 1.6-3.4.2-1.2.5-2.4 1.2-2.4s1 1.2 1.2 2.4c.3 1.6.4 3.4 1.6 3.4 1.1 0 1.6-1.7 2.1-3.2.7-2 1.2-4.3 1.6-6.4.3-1.5.6-3.3-.3-4.3-.9-1-2.1 0-3.7 0C15.2 4.1 14.1 3 12 3z"/>
+                <path d="M12 3c-2.1 0-3.2 1.1-4.5 1.1-1.6 0-2.8-1-3.7 0-.9 1-.6 2.8-.3 4.3.4 2.1.9 4.4 1.6 6.4.5 1.5 1 3.2 2.1 3.2 1.2 0 1.3-1.8 1.6-3.4.2-1.2.5-2.4 1.2-2.4s1 1.2 1.2 2.4c.3 1.6.4 3.4 1.6 3.4 1.1 0 1.6-1.7 2.1-3.2.7-2 1.2-4.3 1.6-6.4.3-1.5.6-3.3-.3-4.3-.9-1-2.1 0-3.7 0C15.2 4.1 14.1 3 12 3z" />
               </svg>
             </div>
 
@@ -103,6 +134,24 @@ const Login = () => {
                   </linearGradient>
                 </defs>
               </svg>
+            </div>
+
+            {/* Dummy Role Selector */}
+            <div className="input-group">
+              <label className="input-label">Select Role (Dummy Base)</label>
+              <div className="role-chips">
+                {DUMMY_USERS.map((user) => (
+                  <button
+                    type="button"
+                    key={user.role}
+                    className={`role-chip ${selectedRole === user.role ? 'active' : ''}`}
+                    onClick={() => handleSelectRole(user)}
+                    disabled={loading}
+                  >
+                    {user.role}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Error/Success Messages */}
@@ -155,13 +204,13 @@ const Login = () => {
                 >
                   {showPassword ? (
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                      <circle cx="12" cy="12" r="3"/>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
                     </svg>
                   ) : (
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6">
-                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
-                      <line x1="1" y1="1" x2="23" y2="23"/>
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                      <line x1="1" y1="1" x2="23" y2="23" />
                     </svg>
                   )}
                 </button>
@@ -190,7 +239,7 @@ const Login = () => {
               {loading ? (
                 <span className="spinner" aria-label="Signing in"></span>
               ) : (
-                'Sign in'
+                `Sign in as ${selectedRole}`
               )}
             </button>
           </form>

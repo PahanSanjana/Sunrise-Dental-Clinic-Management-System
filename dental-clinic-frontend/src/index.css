@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Clean and Fresh Dental Clinic Color Palette */
+  --ink: #2F3E3C;
+  --ink-soft: rgba(47, 62, 60, 0.62);
+  --ink-faint: rgba(47, 62, 60, 0.38);
+  --ink-hair: rgba(47, 62, 60, 0.12);
+  --mist: #BDDBD1;
+  --sage: #E7E9E3;
+  --cream: #FBF9F1;
+  --pale-mint: #E8F0F1;
+  --sky: #C7E7EC;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,26 +24,19 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Roboto', 
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(160deg, var(--cream) 0%, var(--sage) 55%, var(--pale-mint) 100%);
+  color: var(--ink);
   min-height: 100vh;
 }
 
 code {
-  font-family: 'SF Mono', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
 }
 
-/* Remove default focus outline */
-*:focus {
-  outline: none;
-}
-
-/* Smooth transitions for all interactive elements */
-* {
-  transition: all 0.2s ease;
+::selection {
+  background: rgba(189, 219, 209, 0.6);
+  color: var(--ink);
 }

@@ -27,7 +27,7 @@ const DashboardLayout = ({
   onSignOut = () => {},
   children,
 }) => {
-  const [search, setSearch] = useState('');
+  const [, setSearch] = useState('');
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>

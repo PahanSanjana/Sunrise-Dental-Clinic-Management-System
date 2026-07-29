@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DashboardLayout from './DashboardLayout';
 import { adminMenu, roleMeta } from './navConfigs';
 
 /**
  * Admin Dashboard shell — sidebar + topbar.
- * Drop your page components inside as `children`, and wire
- * `activePath` / `onNavigate` to your router.
+ * Wraps page components with Admin navigation and handles routing.
  */
 const AdminNavbar = ({ children }) => {
-  const [activePath, setActivePath] = useState('/admin/dashboard');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
+
+  const handleSignOut = () => {
+    navigate('/login');
+  };
 
   return (
     <DashboardLayout
       roleLabel="Administrator"
       menuSections={adminMenu}
       meta={roleMeta.admin}
-      activePath={activePath}
-      onNavigate={setActivePath}
-      onSignOut={() => console.log('Admin signed out')}
+      activePath={location.pathname || '/admin/dashboard'}
+      onNavigate={handleNavigate}
+      onSignOut={handleSignOut}
     >
       {children}
     </DashboardLayout>
