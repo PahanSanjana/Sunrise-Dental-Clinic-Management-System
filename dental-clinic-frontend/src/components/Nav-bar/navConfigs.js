@@ -85,7 +85,7 @@ export const adminMenu = [
     icon: Users,
     children: [
       { id: 'patient-list', label: 'Patient List', path: '/admin/patients' },
-      { id: 'patient-add', label: 'Add Patient', path: '/admin/patients/add' },
+      { id: 'patient-add', label: 'Add Patient', path: '/admin/patients/new' },
       { id: 'patient-details', label: 'Patient Details', path: '/admin/patients/details' },
     ],
   },

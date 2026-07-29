@@ -4,16 +4,19 @@ import Login from './components/login/Login';
 import AdminNavbar from './components/Nav-bar/AdminNavbar';
 import DashboardPage from './pages/Admin/DashboardPage';
 import AdminPatientList from './pages/Admin/AdminPatientList';
+import PatientForm from './pages/Admin/PatientForm';
+import PatientDetails from './pages/Admin/PatientDetails';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
 
-          {/* Admin Dashboard wrapped in Admin Navbar */}
+          {/* Admin Routes wrapped in AdminNavbar */}
           <Route
             path="/admin/dashboard"
             element={
@@ -23,7 +26,6 @@ function App() {
             }
           />
 
-          {/* Admin Patient List wrapped in Admin Navbar */}
           <Route
             path="/admin/patients"
             element={
@@ -32,8 +34,38 @@ function App() {
               </AdminNavbar>
             }
           />
-          
-          {/* Fallback Admin Sub-routes wrapped in Admin Navbar */}
+
+          {/* Patient Form - Add New Patient */}
+          <Route
+            path="/admin/patients/new"
+            element={
+              <AdminNavbar>
+                <PatientForm />
+              </AdminNavbar>
+            }
+          />
+
+          {/* Patient Form - Edit Existing Patient */}
+          <Route
+            path="/admin/patients/:id/edit"
+            element={
+              <AdminNavbar>
+                <PatientForm />
+              </AdminNavbar>
+            }
+          />
+
+          {/* Patient Details - View Patient Profile */}
+          <Route
+            path="/admin/patients/:id"
+            element={
+              <AdminNavbar>
+                <PatientDetails />
+              </AdminNavbar>
+            }
+          />
+
+          {/* Fallback for any other admin routes */}
           <Route
             path="/admin/*"
             element={
@@ -43,6 +75,7 @@ function App() {
             }
           />
 
+          {/* Role-based Dashboard Routes (Dummy Pages) */}
           <Route path="/dentist/dashboard" element={
             <div style={{ padding: '40px', fontFamily: 'sans-serif', textAlign: 'center' }}>
               <h2>Dentist Dashboard</h2>
@@ -50,6 +83,7 @@ function App() {
               <a href="/login" style={{ color: '#2F3E3C', textDecoration: 'underline' }}>Back to Login</a>
             </div>
           } />
+
           <Route path="/patient/dashboard" element={
             <div style={{ padding: '40px', fontFamily: 'sans-serif', textAlign: 'center' }}>
               <h2>Patient Portal</h2>
@@ -57,6 +91,7 @@ function App() {
               <a href="/login" style={{ color: '#2F3E3C', textDecoration: 'underline' }}>Back to Login</a>
             </div>
           } />
+
           <Route path="/receptionist/dashboard" element={
             <div style={{ padding: '40px', fontFamily: 'sans-serif', textAlign: 'center' }}>
               <h2>Receptionist Desk</h2>
@@ -64,6 +99,8 @@ function App() {
               <a href="/login" style={{ color: '#2F3E3C', textDecoration: 'underline' }}>Back to Login</a>
             </div>
           } />
+
+          {/* Catch-all redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
