@@ -9,6 +9,8 @@ import PatientDetails from './pages/Admin/PatientDetails';
 import AppointmentList from './pages/Admin/AppointmentList';
 import AppointmentForm from './pages/Admin/AppointmentForm';
 import AppointmentDetails from './pages/Admin/AppointmentDetails';
+import ScheduleView from './pages/Admin/ScheduleView';
+
 
 function App() {
   return (
@@ -95,13 +97,10 @@ function App() {
           />
 
           <Route
-            path="/admin/appointments/:id/edit"
+            path="/admin/schedule"
             element={
               <AdminNavbar>
-                <div style={{ padding: '40px', textAlign: 'center' }}>
-                  <h2>Edit Appointment</h2>
-                  <p>Appointment edit form coming soon...</p>
-                </div>
+                <ScheduleView />
               </AdminNavbar>
             }
           />

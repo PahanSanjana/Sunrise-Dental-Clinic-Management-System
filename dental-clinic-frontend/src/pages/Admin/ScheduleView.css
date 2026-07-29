@@ -1,0 +1,911 @@
+/* ================================================================
+   Radiant — Daily Schedule View
+   Same design system: glass surfaces, Fraunces + Inter
+   Palette: ink #2F3E3C · mist #BDDBD1 · sage #E7E9E3
+            cream #FBF9F1 · pale mint #E8F0F1 · sky #C7E7EC
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --ink: #2F3E3C;
+    --ink-soft: rgba(47, 62, 60, 0.65);
+    --ink-faint: rgba(47, 62, 60, 0.38);
+    --ink-hair: rgba(47, 62, 60, 0.12);
+    --mist: #BDDBD1;
+    --sage: #E7E9E3;
+    --cream: #FBF9F1;
+    --pale-mint: #E8F0F1;
+    --sky: #C7E7EC;
+    --amber: #C4954C;
+    --danger: #A24438;
+    --success: #4A7A64;
+    --info: #3A7A8A;
+    --warning: #D4A345;
+
+    --font-display: 'Fraunces', 'Georgia', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------------------------------------------------------------
+   Page Container
+   --------------------------------------------------------------- */
+.sc-page {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(160deg, var(--cream) 0%, var(--sage) 45%, var(--pale-mint) 100%);
+    font-family: var(--font-body);
+    color: var(--ink);
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+/* Ambient Blobs */
+.sc-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sc-blob-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--mist), transparent 70%);
+    top: -150px;
+    right: -100px;
+}
+
+.sc-blob-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, var(--sky), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+}
+
+.sc-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ---------------------------------------------------------------
+   Glass Card
+   --------------------------------------------------------------- */
+.glass-card {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px -15px rgba(47, 62, 60, 0.12);
+    transition: all 0.3s ease;
+}
+
+/* ---------------------------------------------------------------
+   Header
+   --------------------------------------------------------------- */
+.sc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sc-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+}
+
+.sc-subtitle {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+}
+
+.sc-header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ---------------------------------------------------------------
+   Buttons
+   --------------------------------------------------------------- */
+.sc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(47, 62, 60, 0.14);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--ink);
+    font-size: 13.5px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    min-height: 40px;
+}
+
+.sc-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.sc-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.sc-btn.primary {
+    background: linear-gradient(150deg, var(--ink) 0%, #3d534f 100%);
+    color: var(--cream);
+    border: none;
+    box-shadow: 0 10px 24px -6px rgba(47, 62, 60, 0.35);
+}
+
+.sc-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -4px rgba(47, 62, 60, 0.5);
+}
+
+.sc-btn.secondary {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(47, 62, 60, 0.12);
+}
+
+.sc-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* ---------------------------------------------------------------
+   Date Navigation
+   --------------------------------------------------------------- */
+.sc-date-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 12px 0;
+}
+
+.sc-date-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.sc-date-btn {
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--ink-hair);
+    background: rgba(255, 255, 255, 0.4);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.sc-date-btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--ink);
+}
+
+.sc-date-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.sc-date-btn.today {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+}
+
+.sc-date-btn.today:hover {
+    background: #3d534f;
+}
+
+.sc-date-display {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.sc-date-label {
+    font-family: var(--font-display);
+    font-style: italic;
+}
+
+.sc-view-toggle {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.sc-view-btn {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sc-view-btn:hover {
+    color: var(--ink);
+}
+
+.sc-view-btn.active {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--ink);
+    box-shadow: 0 2px 8px rgba(47, 62, 60, 0.08);
+}
+
+/* ---------------------------------------------------------------
+   Stats
+   --------------------------------------------------------------- */
+.sc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.sc-stat-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 14px 20px;
+    text-align: center;
+}
+
+.sc-stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.sc-stat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+}
+
+.sc-stat-card.completed .sc-stat-value {
+    color: var(--success);
+}
+
+.sc-stat-card.confirmed .sc-stat-value {
+    color: var(--info);
+}
+
+.sc-stat-card.pending .sc-stat-value {
+    color: var(--warning);
+}
+
+/* ---------------------------------------------------------------
+   Filters
+   --------------------------------------------------------------- */
+.sc-filters-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sc-filters-toggle {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.sc-filters-panel {
+    padding: 20px 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sc-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 180px;
+    flex: 1;
+}
+
+.sc-filter-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink-soft);
+}
+
+.sc-filter-select {
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--ink-hair);
+    background: rgba(255, 255, 255, 0.5);
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink);
+    outline: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.sc-filter-select:focus {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: var(--mist);
+    box-shadow: 0 0 0 3px rgba(199, 231, 236, 0.35);
+}
+
+/* ---------------------------------------------------------------
+   Schedule Grid
+   --------------------------------------------------------------- */
+.sc-schedule {
+    overflow: hidden;
+    padding: 0;
+}
+
+.sc-schedule-header {
+    display: grid;
+    grid-template-columns: 70px repeat(3, 1fr);
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid var(--ink-hair);
+    padding: 12px 16px;
+    gap: 8px;
+}
+
+.sc-time-label-header {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+}
+
+.sc-dentist-header {
+    text-align: center;
+    padding: 4px 8px;
+}
+
+.sc-dentist-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+}
+
+.sc-dentist-specialty {
+    font-size: 11px;
+    color: var(--ink-soft);
+}
+
+.sc-schedule-body {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.sc-schedule-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sc-schedule-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sc-schedule-body::-webkit-scrollbar-thumb {
+    background: var(--ink-hair);
+    border-radius: 10px;
+}
+
+.sc-schedule-row {
+    display: grid;
+    grid-template-columns: 70px repeat(3, 1fr);
+    gap: 8px;
+    padding: 4px 16px;
+    border-bottom: 1px solid rgba(47, 62, 60, 0.04);
+    min-height: 70px;
+    align-items: stretch;
+}
+
+.sc-schedule-row:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.sc-time-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.sc-slot {
+    padding: 4px 0;
+    min-height: 62px;
+}
+
+.sc-slot-empty {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    border-radius: 10px;
+    border: 1px dashed var(--ink-hair);
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.sc-slot-empty:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Appointment Cards
+   --------------------------------------------------------------- */
+.sc-appointment-card {
+    padding: 8px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    height: 100%;
+    min-height: 58px;
+    border-left: 4px solid transparent;
+}
+
+.sc-appointment-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(47, 62, 60, 0.12);
+}
+
+.sc-appointment-card.hovered {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(47, 62, 60, 0.15);
+    z-index: 10;
+}
+
+/* Status Colors */
+.sc-appointment-card.status-scheduled {
+    background: rgba(199, 231, 236, 0.3);
+    border-left-color: var(--info);
+}
+
+.sc-appointment-card.status-confirmed {
+    background: rgba(189, 219, 209, 0.3);
+    border-left-color: var(--success);
+}
+
+.sc-appointment-card.status-completed {
+    background: rgba(231, 233, 227, 0.5);
+    border-left-color: var(--success);
+    opacity: 0.7;
+}
+
+.sc-appointment-card.status-in-progress {
+    background: rgba(196, 149, 76, 0.15);
+    border-left-color: var(--warning);
+    animation: pulse-border 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+
+    0%,
+    100% {
+        border-left-color: var(--warning);
+    }
+
+    50% {
+        border-left-color: var(--amber);
+    }
+}
+
+.sc-appointment-card.status-pending {
+    background: rgba(196, 149, 76, 0.1);
+    border-left-color: var(--warning);
+}
+
+.sc-appointment-card.status-cancelled {
+    background: rgba(162, 68, 56, 0.08);
+    border-left-color: var(--danger);
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.sc-appointment-card.status-no-show {
+    background: rgba(162, 68, 56, 0.1);
+    border-left-color: var(--danger);
+    opacity: 0.6;
+}
+
+.sc-appointment-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 2px;
+}
+
+.sc-appointment-time svg {
+    width: 12px;
+    height: 12px;
+}
+
+.sc-appointment-patient {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sc-appointment-treatment {
+    font-size: 11px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sc-appointment-actions {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sc-appointment-card:hover .sc-appointment-actions {
+    opacity: 1;
+}
+
+.sc-appt-action-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--ink-soft);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.sc-appt-action-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    color: var(--ink);
+}
+
+.sc-appt-action-btn svg {
+    width: 12px;
+    height: 12px;
+}
+
+.sc-appointment-status {
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--ink-soft);
+    opacity: 0.6;
+}
+
+/* ---------------------------------------------------------------
+   Quick Actions
+   --------------------------------------------------------------- */
+.sc-quick-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 4px 0;
+}
+
+/* ---------------------------------------------------------------
+   Legend
+   --------------------------------------------------------------- */
+.sc-legend {
+    padding: 16px 24px;
+}
+
+.sc-legend-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+
+.sc-legend-items {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sc-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-soft);
+}
+
+.sc-legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.sc-legend-dot.status-scheduled {
+    background: rgba(199, 231, 236, 0.6);
+    border-left: 3px solid var(--info);
+}
+
+.sc-legend-dot.status-confirmed {
+    background: rgba(189, 219, 209, 0.6);
+    border-left: 3px solid var(--success);
+}
+
+.sc-legend-dot.status-in-progress {
+    background: rgba(196, 149, 76, 0.3);
+    border-left: 3px solid var(--warning);
+}
+
+.sc-legend-dot.status-completed {
+    background: rgba(231, 233, 227, 0.6);
+    border-left: 3px solid var(--success);
+}
+
+.sc-legend-dot.status-pending {
+    background: rgba(196, 149, 76, 0.2);
+    border-left: 3px solid var(--warning);
+}
+
+.sc-legend-dot.status-cancelled {
+    background: rgba(162, 68, 56, 0.15);
+    border-left: 3px solid var(--danger);
+}
+
+.sc-legend-dot.status-no-show {
+    background: rgba(162, 68, 56, 0.2);
+    border-left: 3px solid var(--danger);
+}
+
+/* ---------------------------------------------------------------
+   Responsive Design
+   --------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .sc-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sc-schedule-header,
+    .sc-schedule-row {
+        grid-template-columns: 60px repeat(3, 1fr);
+        gap: 6px;
+        padding: 4px 12px;
+    }
+}
+
+@media (max-width: 820px) {
+    .sc-inner {
+        padding: 32px 20px;
+    }
+
+    .sc-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sc-header-actions {
+        justify-content: stretch;
+    }
+
+    .sc-header-actions .sc-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .sc-date-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .sc-date-controls {
+        justify-content: center;
+    }
+
+    .sc-date-display {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .sc-view-toggle {
+        align-self: center;
+    }
+
+    .sc-schedule-header,
+    .sc-schedule-row {
+        grid-template-columns: 50px repeat(3, 1fr);
+        gap: 4px;
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .sc-slot {
+        min-height: 50px;
+    }
+
+    .sc-appointment-card {
+        padding: 4px 6px;
+        min-height: 46px;
+    }
+
+    .sc-appointment-patient {
+        font-size: 11px;
+    }
+
+    .sc-appointment-treatment {
+        font-size: 10px;
+    }
+
+    .sc-appointment-actions {
+        display: none;
+    }
+
+    .sc-appointment-status {
+        display: none;
+    }
+
+    .sc-quick-actions {
+        flex-direction: column;
+    }
+
+    .sc-quick-actions .sc-btn {
+        justify-content: center;
+    }
+
+    .sc-legend-items {
+        gap: 10px;
+    }
+
+    .sc-legend-item {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sc-inner {
+        padding: 24px 14px;
+    }
+
+    .sc-title {
+        font-size: 26px;
+    }
+
+    .sc-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .sc-stat-value {
+        font-size: 22px;
+    }
+
+    .sc-schedule-header {
+        display: none;
+    }
+
+    .sc-schedule-row {
+        grid-template-columns: 45px 1fr;
+        gap: 8px;
+        padding: 6px 8px;
+        min-height: 60px;
+    }
+
+    .sc-time-label {
+        font-size: 12px;
+    }
+
+    .sc-slot {
+        min-height: 54px;
+        padding: 2px 0;
+    }
+
+    .sc-appointment-card {
+        padding: 6px 8px;
+        min-height: 50px;
+    }
+
+    .sc-appointment-patient {
+        font-size: 12px;
+    }
+
+    .sc-appointment-treatment {
+        font-size: 10px;
+    }
+
+    .sc-date-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .sc-date-btn.today {
+        padding: 6px 12px;
+    }
+
+    .sc-filters-panel {
+        padding: 16px;
+        flex-direction: column;
+    }
+
+    .sc-filter-group {
+        min-width: auto;
+    }
+}

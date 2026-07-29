@@ -96,8 +96,8 @@ export const adminMenu = [
     children: [
       { id: 'appt-list', label: 'Appointment List', path: '/admin/appointments' },
       { id: 'appt-add', label: 'Book Appointment', path: '/admin/appointments/new' },
-      { id: 'appt-details', label: 'Appointment Details', path: '/admin/appointments/details' },
-      { id: 'appt-daily', label: 'Daily Schedule', path: '/admin/appointments/daily' },
+      { id: 'appt-details', label: 'Appointment Details', path: '/admin/appointments/:id' },
+      { id: 'appt-daily', label: 'Daily Schedule', path: '/admin/schedule' },
     ],
   },
   {
