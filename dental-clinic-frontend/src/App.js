@@ -7,6 +7,7 @@ import AdminPatientList from './pages/Admin/AdminPatientList';
 import PatientForm from './pages/Admin/PatientForm';
 import PatientDetails from './pages/Admin/PatientDetails';
 import AppointmentList from './pages/Admin/AppointmentList';
+import AppointmentForm from './pages/Admin/AppointmentForm';
 
 function App() {
   return (
@@ -78,10 +79,7 @@ function App() {
             path="/admin/appointments/new"
             element={
               <AdminNavbar>
-                <div style={{ padding: '40px', textAlign: 'center' }}>
-                  <h2>Book New Appointment</h2>
-                  <p>Appointment form coming soon...</p>
-                </div>
+                <AppointmentForm />
               </AdminNavbar>
             }
           />

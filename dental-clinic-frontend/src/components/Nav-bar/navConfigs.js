@@ -95,7 +95,7 @@ export const adminMenu = [
     icon: CalendarDays,
     children: [
       { id: 'appt-list', label: 'Appointment List', path: '/admin/appointments' },
-      { id: 'appt-book', label: 'Book Appointment', path: '/admin/appointments/book' },
+      { id: 'appt-add', label: 'Book Appointment', path: '/admin/appointments/new' },
       { id: 'appt-details', label: 'Appointment Details', path: '/admin/appointments/details' },
       { id: 'appt-daily', label: 'Daily Schedule', path: '/admin/appointments/daily' },
     ],
