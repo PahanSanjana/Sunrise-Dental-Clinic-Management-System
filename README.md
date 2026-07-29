@@ -1,90 +1,88 @@
-🦷 Sunrise Dental Clinic Management System
-A Complete Full-Stack Dental Practice Management Solution
-📋 Table of Contents
-Project Overview
+# 🦷 Sunrise Dental Clinic Management System
 
-Color Palette
+**A Complete Full-Stack Dental Practice Management Solution**
 
-Architecture
+---
 
-User Roles & Features
+## 📋 Table of Contents
 
-Technology Stack
+- [Project Overview](#project-overview)
+- [Color Palette](#color-palette)
+- [Architecture](#architecture)
+- [User Roles & Features](#user-roles--features)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Pages & Routes](#pages--routes)
+- [Getting Started](#getting-started)
+- [API Endpoints](#api-endpoints)
+- [Database Schema](#database-schema)
+- [Contributing](#contributing)
+- [License](#license)
 
-Project Structure
+---
 
-Pages & Routes
+## Project Overview
 
-Getting Started
+**Sunrise Dental Clinic Management System** is a comprehensive, full-stack web application designed to modernize dental practice operations. The system streamlines patient management, appointment scheduling, billing, clinical documentation, and reporting through an intuitive, role-based interface.
 
-Development Guidelines
+### Key Features
 
-API Endpoints
+| Feature | Description |
+|---|---|
+| **Patient Management** | Register, search, and manage patient records with medical history |
+| **Appointment Scheduling** | Book, reschedule, and cancel appointments with real-time availability |
+| **Billing System** | Generate invoices, process payments, and track financials |
+| **Clinical Documentation** | Add treatment notes, view patient history, and manage medical records |
+| **Reporting & Analytics** | Revenue analysis, schedule utilization, and performance metrics |
+| **Patient Portal** | Self-service access for appointments, bills, and medical records |
+| **Role-Based Access** | Admin, Receptionist, Dentist, and Patient portals |
+| **Distributed Architecture** | RESTful API with React frontend and Spring Boot backend |
 
-Database Schema
+### Problems Solved
 
-Contributing
+| Problem | Solution |
+|---|---|
+| ❌ Double Booking | ✅ Real-time availability checking with conflict prevention |
+| ❌ Lost Records | ✅ Centralized digital database with secure storage |
+| ❌ Long Waiting Times | ✅ Automated scheduling and appointment reminders |
+| ❌ Billing Errors | ✅ Automated calculation with accurate invoicing |
 
-License
+---
 
-Project Overview
-Sunrise Dental Clinic Management System is a comprehensive, full-stack web application designed to modernize dental practice operations. The system streamlines patient management, appointment scheduling, billing, clinical documentation, and reporting through an intuitive, role-based interface.
+## Color Palette
 
-Key Features
-Feature	Description
-Patient Management	Register, search, and manage patient records with medical history
-Appointment Scheduling	Book, reschedule, and cancel appointments with real-time availability
-Billing System	Generate invoices, process payments, and track financials
-Clinical Documentation	Add treatment notes, view patient history, and manage medical records
-Reporting & Analytics	Revenue analysis, schedule utilization, and performance metrics
-Patient Portal	Self-service access for appointments, bills, and medical records
-Role-Based Access	Admin, Receptionist, Dentist, and Patient portals
-Distributed Architecture	RESTful API with React frontend and Spring Boot backend
-Problems Solved
-❌ Double Booking → ✅ Real-time availability checking with conflict prevention
+**Clean & Fresh Colors — Dental Clinic Theme**
 
-❌ Lost Records → ✅ Centralized digital database with secure storage
+### Primary Colors
 
-❌ Long Waiting Times → ✅ Automated scheduling and appointment reminders
+| Color | Hex | Swatch |
+|---|---|---|
+| Dark Teal | `#2F3E3C` | ██████████ |
+| Soft Mint | `#BDDBD1` | ██████████ |
+| Light Sage | `#E7E9E3` | ██████████ |
+| Cream White | `#FBF9F1` | ██████████ |
 
-❌ Billing Errors → ✅ Automated calculation with accurate invoicing
+### Accent Colors
 
+| Color | Hex | Swatch |
+|---|---|---|
+| Ice Blue | `#E8F0F1` | ██████████ |
+| Sky Blue | `#C7E7EC` | ██████████ |
 
-Color Palette
-Clean & Fresh Colors - Dental Clinic Theme
-┌─────────────────────────────────────────────────────────────────────┐
-│                    SUNRISE DENTAL COLOR PALETTE                     │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  PRIMARY COLORS                                                     │
-│  ┌────────────────────────────────────────────────────────────────┐ │
-│  │                                                                │ │
-│  │  #2F3E3C       #BDDBD1       #E7E9E3       #FBF9F1            │ │
-│  │  ████████████  ████████████  ████████████  ████████████       │ │
-│  │  Dark Teal     Soft Mint     Light Sage    Cream White        │ │
-│  │                                                                │ │
-│  └────────────────────────────────────────────────────────────────┘ │
-│                                                                     │
-│  ACCENT COLORS                                                      │
-│  ┌────────────────────────────────────────────────────────────────┐ │
-│  │                                                                │ │
-│  │  #E8F0F1       #C7E7EC                                        │ │
-│  │  ████████████  ████████████                                   │ │
-│  │  Ice Blue      Sky Blue                                       │ │
-│  │                                                                │ │
-│  └────────────────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────┘
+### Color Usage Guide
 
-Color Usage Guide
-Color	Hex	Usage
-Dark Teal	#2F3E3C	Primary text, navigation bars, headings, footer backgrounds
-Soft Mint	#BDDBD1	Primary buttons, success states, active elements, highlights
-Light Sage	#E7E9E3	Backgrounds, cards, containers, input fields
-Cream White	#FBF9F1	Main background, content areas, form backgrounds
-Ice Blue	#E8F0F1	Secondary buttons, borders, subtle highlights
-Sky Blue	#C7E7EC	Accents, notifications, hover effects, links
+| Color | Hex | Usage |
+|---|---|---|
+| Dark Teal | `#2F3E3C` | Primary text, navigation bars, headings, footer backgrounds |
+| Soft Mint | `#BDDBD1` | Primary buttons, success states, active elements, highlights |
+| Light Sage | `#E7E9E3` | Backgrounds, cards, containers, input fields |
+| Cream White | `#FBF9F1` | Main background, content areas, form backgrounds |
+| Ice Blue | `#E8F0F1` | Secondary buttons, borders, subtle highlights |
+| Sky Blue | `#C7E7EC` | Accents, notifications, hover effects, links |
 
-Design System
+### Design System
+
+```css
 /* Primary Colors */
 --color-primary: #2F3E3C;
 --color-secondary: #BDDBD1;
@@ -118,10 +116,15 @@ Design System
 --shadow-md: 0 4px 16px rgba(47, 62, 60, 0.12);
 --shadow-lg: 0 8px 32px rgba(47, 62, 60, 0.16);
 --shadow-xl: 0 16px 48px rgba(47, 62, 60, 0.20);
+```
 
-Architecture
-System Architecture Diagram
+---
 
+## Architecture
+
+### System Architecture Diagram
+
+```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                         CLIENT LAYER (React)                           │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐              │
@@ -184,84 +187,91 @@ System Architecture Diagram
 │  │  └──────────┘  └──────────┘  └──────────┘  └──────────┘      │   │
 │  └─────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘
+```
 
-User Roles & Features
-Role-Based Feature Matrix
-Feature	Admin	Receptionist	Dentist	Patient
-Dashboard	✅ Full Analytics	✅ Daily Overview	✅ Schedule View	✅ Personal Summary
-Patient Management	✅ Full CRUD	✅ Full CRUD	⚠️ View Only	⚠️ Self Only
-Appointment Management	✅ Full CRUD	✅ Full CRUD	✅ Update Status	⚠️ Request Only
-Billing	✅ Full Access	✅ Generate/Process	❌ No Access	⚠️ View & Pay
-Clinical Notes	✅ View Only	❌ No Access	✅ Write Access	⚠️ View Only
-Reports	✅ All Reports	⚠️ Limited	⚠️ Personal Only	❌ No Access
-Staff Management	✅ Full Access	❌ No Access	❌ No Access	❌ No Access
-Dentist Management	✅ Full Access	⚠️ View Only	❌ No Access	❌ No Access
-Treatment Management	✅ Full Access	⚠️ View Only	❌ No Access	❌ No Access
-Settings	✅ Full Access	❌ No Access	❌ No Access	⚠️ Profile Only
-Audit Logs	✅ Full Access	❌ No Access	❌ No Access	❌ No Access
-Profile	✅ Self Only	✅ Self Only	✅ Self Only	✅ Self Only
-Page Count by Role
-Role	Pages	Routes
-Admin	26	/admin/*
-Receptionist	17	/receptionist/*
-Dentist	14	/dentist/*
-Patient	12	/patient/*
-Technology Stack
-Frontend
+---
 
-┌─────────────────────────────────────────────────────────────┐
-│                    FRONTEND STACK                           │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  🚀 React 18               - UI Framework                  │
-│  🛣️ React Router DOM       - Navigation & Routing          │
-│  📡 Axios                   - HTTP Client                  │
-│  🎨 CSS3                    - Styling                     │
-│  💅 Custom CSS Variables    - Design System               │
-│  📊 Chart.js               - Charts & Graphs              │
-│  📅 React Calendar          - Calendar Components          │
-│  📄 React PDF              - PDF Generation               │
-│  🎯 React Hook Form        - Form Handling                │
-│  🔐 Context API            - State Management             │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+## User Roles & Features
 
-Backend
-┌─────────────────────────────────────────────────────────────┐
-│                    BACKEND STACK                            │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ☕ Java 21                  - Programming Language        │
-│  🍃 Spring Boot 3.4.1       - Framework                   │
-│  🗄️ Spring Data JPA         - ORM / Database Access       │
-│  🔒 Spring Security         - Authentication & Auth       │
-│  🛡️ JWT                     - Token-Based Security        │
-│  🐬 MySQL 8.x               - Database                    │
-│  📦 Maven                   - Build Tool                  │
-│  🔄 Hibernate               - ORM Implementation          │
-│  ✅ Validation              - Input Validation            │
-│  🧪 JUnit 5                 - Testing                     │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+### Role-Based Feature Matrix
 
-Development Tools
+| Feature | Admin | Receptionist | Dentist | Patient |
+|---|---|---|---|---|
+| Dashboard | ✅ Full Analytics | ✅ Daily Overview | ✅ Schedule View | ✅ Personal Summary |
+| Patient Management | ✅ Full CRUD | ✅ Full CRUD | ⚠️ View Only | ⚠️ Self Only |
+| Appointment Management | ✅ Full CRUD | ✅ Full CRUD | ✅ Update Status | ⚠️ Request Only |
+| Billing | ✅ Full Access | ✅ Generate/Process | ❌ No Access | ⚠️ View & Pay |
+| Clinical Notes | ✅ View Only | ❌ No Access | ✅ Write Access | ⚠️ View Only |
+| Reports | ✅ All Reports | ⚠️ Limited | ⚠️ Personal Only | ❌ No Access |
+| Staff Management | ✅ Full Access | ❌ No Access | ❌ No Access | ❌ No Access |
+| Dentist Management | ✅ Full Access | ⚠️ View Only | ❌ No Access | ❌ No Access |
+| Treatment Management | ✅ Full Access | ⚠️ View Only | ❌ No Access | ❌ No Access |
+| Settings | ✅ Full Access | ❌ No Access | ❌ No Access | ⚠️ Profile Only |
+| Audit Logs | ✅ Full Access | ❌ No Access | ❌ No Access | ❌ No Access |
+| Profile | ✅ Self Only | ✅ Self Only | ✅ Self Only | ✅ Self Only |
 
-┌─────────────────────────────────────────────────────────────┐
-│                    DEVELOPMENT TOOLS                        │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  💻 VS Code                 - Code Editor                  │
-│  🧰 IntelliJ IDEA           - Java IDE                    │
-│  🐳 Docker                  - Containerization (Optional)  │
-│  📦 npm / Maven             - Package Managers             │
-│  🔧 Postman                 - API Testing                  │
-│  🗄️ phpMyAdmin             - Database Management          │
-│  🌐 XAMPP / WAMP            - Local Development            │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+### Page Count by Role
 
-Project Structure
-Frontend Structure
+| Role | Pages | Routes |
+|---|---|---|
+| Admin | 26 | `/admin/*` |
+| Receptionist | 17 | `/receptionist/*` |
+| Dentist | 14 | `/dentist/*` |
+| Patient | 12 | `/patient/*` |
+
+---
+
+## Technology Stack
+
+### Frontend
+
+| Technology | Purpose |
+|---|---|
+| 🚀 React 18 | UI Framework |
+| 🛣️ React Router DOM | Navigation & Routing |
+| 📡 Axios | HTTP Client |
+| 🎨 CSS3 | Styling |
+| 💅 Custom CSS Variables | Design System |
+| 📊 Chart.js | Charts & Graphs |
+| 📅 React Calendar | Calendar Components |
+| 📄 React PDF | PDF Generation |
+| 🎯 React Hook Form | Form Handling |
+| 🔐 Context API | State Management |
+
+### Backend
+
+| Technology | Purpose |
+|---|---|
+| ☕ Java 21 | Programming Language |
+| 🍃 Spring Boot 3.4.1 | Framework |
+| 🗄️ Spring Data JPA | ORM / Database Access |
+| 🔒 Spring Security | Authentication & Authorization |
+| 🛡️ JWT | Token-Based Security |
+| 🐬 MySQL 8.x | Database |
+| 📦 Maven | Build Tool |
+| 🔄 Hibernate | ORM Implementation |
+| ✅ Validation | Input Validation |
+| 🧪 JUnit 5 | Testing |
+
+### Development Tools
+
+| Tool | Purpose |
+|---|---|
+| 💻 VS Code | Code Editor |
+| 🧰 IntelliJ IDEA | Java IDE |
+| 🐳 Docker | Containerization (Optional) |
+| 📦 npm / Maven | Package Managers |
+| 🔧 Postman | API Testing |
+| 🗄️ phpMyAdmin | Database Management |
+| 🌐 XAMPP / WAMP | Local Development |
+
+---
+
+## Project Structure
+
+### Frontend Structure
+
+```
 dental-clinic-frontend/
 ├── public/
 │   ├── index.html
@@ -330,8 +340,11 @@ dental-clinic-frontend/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 
-Backend Structure
+### Backend Structure
+
+```
 dental-clinic-backend/
 ├── src/
 │   └── main/
@@ -390,114 +403,124 @@ dental-clinic-backend/
 │           └── application-prod.properties
 ├── pom.xml
 └── README.md
+```
 
-Pages & Routes
-Full Route Structure
-┌─────────────────────────────────────────────────────────────┐
-│                    ROUTE STRUCTURE                          │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  PUBLIC ROUTES                                              │
-│  ├── /login                    → Login Page                │
-│  └── /register                 → Register Page             │
-│                                                             │
-│  ADMIN ROUTES (/admin/*)                                   │
-│  ├── /dashboard                → Admin Dashboard           │
-│  ├── /patients                 → Patient List              │
-│  ├── /patients/new             → Add Patient               │
-│  ├── /patients/:id             → Patient Details           │
-│  ├── /patients/:id/edit        → Edit Patient              │
-│  ├── /appointments             → Appointment List          │
-│  ├── /appointments/new         → Book Appointment          │
-│  ├── /appointments/:id         → Appointment Details       │
-│  ├── /schedule                 → Daily Schedule            │
-│  ├── /billing                  → Bill List                 │
-│  ├── /billing/new              → Generate Bill             │
-│  ├── /billing/:id              → Bill Details              │
-│  ├── /reports                  → Report Dashboard          │
-│  ├── /reports/revenue          → Revenue Report            │
-│  ├── /reports/schedule         → Schedule Report           │
-│  ├── /reports/patients         → Patient Report            │
-│  ├── /staff                    → Staff List                │
-│  ├── /staff/new                → Add Staff                 │
-│  ├── /staff/:id                → Staff Details             │
-│  ├── /dentists                 → Dentist List              │
-│  ├── /dentists/new             → Add Dentist               │
-│  ├── /treatments               → Treatment List            │
-│  ├── /treatments/new           → Add Treatment             │
-│  ├── /settings/clinic          → Clinic Settings           │
-│  ├── /settings/permissions     → User Permissions          │
-│  ├── /audit/activity           → Activity Log              │
-│  └── /audit/login              → Login History             │
-│                                                             │
-│  RECEPTIONIST ROUTES (/receptionist/*)                     │
-│  ├── /dashboard                → Receptionist Dashboard    │
-│  ├── /patients                 → Patient List              │
-│  ├── /patients/new             → Add Patient               │
-│  ├── /patients/:id             → Patient Details           │
-│  ├── /appointments             → Appointment List          │
-│  ├── /appointments/new         → Book Appointment          │
-│  ├── /appointments/:id         → Appointment Details       │
-│  ├── /schedule                 → Daily Schedule            │
-│  ├── /checkin/:id              → Patient Check-in          │
-│  ├── /billing                  → Bill List                 │
-│  ├── /billing/new              → Generate Bill             │
-│  ├── /billing/:id              → Bill Details              │
-│  ├── /reports/daily            → Daily Summary Report      │
-│  ├── /reports/appointments     → Appointment Report        │
-│  ├── /profile                  → View Profile              │
-│  └── /profile/edit             → Edit Profile              │
-│                                                             │
-│  DENTIST ROUTES (/dentist/*)                                │
-│  ├── /dashboard                → Dentist Dashboard         │
-│  ├── /schedule/daily           → Daily Schedule            │
-│  ├── /schedule/week            → Week Schedule             │
-│  ├── /appointments/:id         → Appointment Details       │
-│  ├── /patients                 → My Patients               │
-│  ├── /patients/:id             → Patient Details           │
-│  ├── /appointments/today       → Today's Appointments      │
-│  ├── /appointments/upcoming    → Upcoming Appointments     │
-│  ├── /notes/new/:id            → Add Treatment Notes       │
-│  ├── /history/:id              → Patient History           │
-│  ├── /reports/performance      → Performance Report        │
-│  ├── /reports/treatments       → Treatment Report          │
-│  ├── /profile                  → View Profile              │
-│  └── /profile/edit             → Edit Profile              │
-│                                                             │
-│  PATIENT ROUTES (/patient/*)                                │
-│  ├── /dashboard                → Patient Dashboard         │
-│  ├── /appointments/upcoming    → Upcoming Appointments     │
-│  ├── /appointments/past        → Past Appointments         │
-│  ├── /appointments/:id         → Appointment Details       │
-│  ├── /bills                    → Bill List                 │
-│  ├── /bills/:id                → Bill Details              │
-│  ├── /profile                  → View Profile              │
-│  ├── /profile/edit             → Edit Profile              │
-│  ├── /medical-history          → Medical History           │
-│  ├── /treatments               → Treatment History         │
-│  ├── /faq                      → FAQ                       │
-│  └── /contact                  → Contact Clinic            │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+---
 
-Getting Started
-Prerequisites
-# Required Software
-Node.js v18+
-Java JDK 21
-MySQL 8.x
-Maven 3.9+
-Git
-XAMPP / WAMP (for local development)
+## Pages & Routes
 
+### Full Route Structure
 
-Installation
-1. Clone the Repository
-bash
+```
+PUBLIC ROUTES
+├── /login                    → Login Page
+└── /register                 → Register Page
+
+ADMIN ROUTES (/admin/*)
+├── /dashboard                → Admin Dashboard
+├── /patients                 → Patient List
+├── /patients/new             → Add Patient
+├── /patients/:id             → Patient Details
+├── /patients/:id/edit        → Edit Patient
+├── /appointments             → Appointment List
+├── /appointments/new         → Book Appointment
+├── /appointments/:id         → Appointment Details
+├── /schedule                 → Daily Schedule
+├── /billing                  → Bill List
+├── /billing/new              → Generate Bill
+├── /billing/:id              → Bill Details
+├── /reports                  → Report Dashboard
+├── /reports/revenue          → Revenue Report
+├── /reports/schedule         → Schedule Report
+├── /reports/patients         → Patient Report
+├── /staff                    → Staff List
+├── /staff/new                → Add Staff
+├── /staff/:id                → Staff Details
+├── /dentists                 → Dentist List
+├── /dentists/new             → Add Dentist
+├── /treatments               → Treatment List
+├── /treatments/new           → Add Treatment
+├── /settings/clinic          → Clinic Settings
+├── /settings/permissions     → User Permissions
+├── /audit/activity           → Activity Log
+└── /audit/login              → Login History
+
+RECEPTIONIST ROUTES (/receptionist/*)
+├── /dashboard                → Receptionist Dashboard
+├── /patients                 → Patient List
+├── /patients/new             → Add Patient
+├── /patients/:id             → Patient Details
+├── /appointments             → Appointment List
+├── /appointments/new         → Book Appointment
+├── /appointments/:id         → Appointment Details
+├── /schedule                 → Daily Schedule
+├── /checkin/:id              → Patient Check-in
+├── /billing                  → Bill List
+├── /billing/new              → Generate Bill
+├── /billing/:id              → Bill Details
+├── /reports/daily            → Daily Summary Report
+├── /reports/appointments     → Appointment Report
+├── /profile                  → View Profile
+└── /profile/edit             → Edit Profile
+
+DENTIST ROUTES (/dentist/*)
+├── /dashboard                → Dentist Dashboard
+├── /schedule/daily           → Daily Schedule
+├── /schedule/week            → Week Schedule
+├── /appointments/:id         → Appointment Details
+├── /patients                 → My Patients
+├── /patients/:id             → Patient Details
+├── /appointments/today       → Today's Appointments
+├── /appointments/upcoming    → Upcoming Appointments
+├── /notes/new/:id            → Add Treatment Notes
+├── /history/:id              → Patient History
+├── /reports/performance      → Performance Report
+├── /reports/treatments       → Treatment Report
+├── /profile                  → View Profile
+└── /profile/edit             → Edit Profile
+
+PATIENT ROUTES (/patient/*)
+├── /dashboard                → Patient Dashboard
+├── /appointments/upcoming    → Upcoming Appointments
+├── /appointments/past        → Past Appointments
+├── /appointments/:id         → Appointment Details
+├── /bills                    → Bill List
+├── /bills/:id                → Bill Details
+├── /profile                  → View Profile
+├── /profile/edit             → Edit Profile
+├── /medical-history          → Medical History
+├── /treatments               → Treatment History
+├── /faq                      → FAQ
+└── /contact                  → Contact Clinic
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js v18+
+- Java JDK 21
+- MySQL 8.x
+- Maven 3.9+
+- Git
+- XAMPP / WAMP (for local development)
+
+### Installation
+
+**1. Clone the Repository**
+
+```bash
 git clone https://github.com/yourusername/sunrise-dental-clinic.git
 cd sunrise-dental-clinic
-2. Backend Setup
-bash
+```
+
+**2. Backend Setup**
+
+```bash
 # Navigate to backend
 cd dental-clinic-backend
 
@@ -509,8 +532,11 @@ mvn clean install
 
 # Run the application
 mvn spring-boot:run
-3. Frontend Setup
-bash
+```
+
+**3. Frontend Setup**
+
+```bash
 # Navigate to frontend
 cd dental-clinic-frontend
 
@@ -519,16 +545,22 @@ npm install
 
 # Start the development server
 npm start
-4. Database Setup
-sql
+```
+
+**4. Database Setup**
+
+```sql
 -- Create database
 CREATE DATABASE IF NOT EXISTS sunrise_dental;
 USE sunrise_dental;
 
 -- Run the schema.sql file
 -- This creates all tables and inserts sample data
-Running the Application
-bash
+```
+
+### Running the Application
+
+```bash
 # Terminal 1 - Backend (Spring Boot)
 cd dental-clinic-backend
 mvn spring-boot:run
@@ -541,48 +573,71 @@ npm start
 
 # Access the application
 # Open: http://localhost:3000
+```
 
-API Endpoints
-Authentication
-Method	Endpoint	Description
-POST	/api/auth/login	User login
-POST	/api/auth/register	User registration
-POST	/api/auth/logout	User logout
-GET	/api/auth/me	Get current user
-Patients
-Method	Endpoint	Description
-GET	/api/patients	Get all patients
-GET	/api/patients/{id}	Get patient by ID
-POST	/api/patients	Create patient
-PUT	/api/patients/{id}	Update patient
-DELETE	/api/patients/{id}	Delete patient
-GET	/api/patients/search	Search patients
-Appointments
-Method	Endpoint	Description
-GET	/api/appointments	Get all appointments
-GET	/api/appointments/{id}	Get appointment by ID
-POST	/api/appointments	Create appointment
-PUT	/api/appointments/{id}	Update appointment
-DELETE	/api/appointments/{id}	Delete appointment
-GET	/api/appointments/daily/{date}	Get daily schedule
-GET	/api/appointments/patient/{id}	Get patient appointments
-POST	/api/appointments/check	Check availability
-Billing
-Method	Endpoint	Description
-GET	/api/bills	Get all bills
-GET	/api/bills/{id}	Get bill by ID
-POST	/api/bills	Generate bill
-PUT	/api/bills/{id}/pay	Process payment
-GET	/api/bills/patient/{id}	Get patient bills
-Reports
-Method	Endpoint	Description
-GET	/api/reports/revenue	Revenue report
-GET	/api/reports/schedule	Schedule report
-GET	/api/reports/patients	Patient report
-GET	/api/reports/performance/{id}	Dentist performance
+---
 
-Database Schema
-Entity Relationship Diagram
+## API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/auth/login` | User login |
+| POST | `/api/auth/register` | User registration |
+| POST | `/api/auth/logout` | User logout |
+| GET | `/api/auth/me` | Get current user |
+
+### Patients
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/patients` | Get all patients |
+| GET | `/api/patients/{id}` | Get patient by ID |
+| POST | `/api/patients` | Create patient |
+| PUT | `/api/patients/{id}` | Update patient |
+| DELETE | `/api/patients/{id}` | Delete patient |
+| GET | `/api/patients/search` | Search patients |
+
+### Appointments
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/appointments` | Get all appointments |
+| GET | `/api/appointments/{id}` | Get appointment by ID |
+| POST | `/api/appointments` | Create appointment |
+| PUT | `/api/appointments/{id}` | Update appointment |
+| DELETE | `/api/appointments/{id}` | Delete appointment |
+| GET | `/api/appointments/daily/{date}` | Get daily schedule |
+| GET | `/api/appointments/patient/{id}` | Get patient appointments |
+| POST | `/api/appointments/check` | Check availability |
+
+### Billing
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/bills` | Get all bills |
+| GET | `/api/bills/{id}` | Get bill by ID |
+| POST | `/api/bills` | Generate bill |
+| PUT | `/api/bills/{id}/pay` | Process payment |
+| GET | `/api/bills/patient/{id}` | Get patient bills |
+
+### Reports
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/reports/revenue` | Revenue report |
+| GET | `/api/reports/schedule` | Schedule report |
+| GET | `/api/reports/patients` | Patient report |
+| GET | `/api/reports/performance/{id}` | Dentist performance |
+
+---
+
+## Database Schema
+
+### Entity Relationship Diagram
+
+```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                         DATABASE SCHEMA                                │
 ├─────────────────────────────────────────────────────────────────────────┤
@@ -621,15 +676,37 @@ Entity Relationship Diagram
 │                                                        │payment_date │  │
 │                                                        └─────────────┘  │
 └─────────────────────────────────────────────────────────────────────────┘
+```
 
-Color Palette Quick Reference
-PRIMARY COLORS:
-  Dark Teal     #2F3E3C    (Text, Headings, Navbar)
-  Soft Mint     #BDDBD1    (Buttons, Success States)
-  Light Sage    #E7E9E3    (Cards, Backgrounds)
-  Cream White   #FBF9F1    (Main Background)
+### Color Palette Quick Reference
 
-ACCENT COLORS:
-  Ice Blue      #E8F0F1    (Secondary Buttons, Borders)
-  Sky Blue      #C7E7EC    (Accents, Hover Effects)
-  
+| Category | Color | Hex | Usage |
+|---|---|---|---|
+| Primary | Dark Teal | `#2F3E3C` | Text, Headings, Navbar |
+| Primary | Soft Mint | `#BDDBD1` | Buttons, Success States |
+| Primary | Light Sage | `#E7E9E3` | Cards, Backgrounds |
+| Primary | Cream White | `#FBF9F1` | Main Background |
+| Accent | Ice Blue | `#E8F0F1` | Secondary Buttons, Borders |
+| Accent | Sky Blue | `#C7E7EC` | Accents, Hover Effects |
+
+---
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+<p align="center">Made with 🦷 and ❤️ by the Sunrise Dental Clinic Team</p>
