@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/login/Login';
 import AdminNavbar from './components/Nav-bar/AdminNavbar';
 import DashboardPage from './pages/Admin/DashboardPage';
+import AdminPatientList from './pages/Admin/AdminPatientList';
 
 function App() {
   return (
@@ -18,6 +19,16 @@ function App() {
             element={
               <AdminNavbar>
                 <DashboardPage />
+              </AdminNavbar>
+            }
+          />
+
+          {/* Admin Patient List wrapped in Admin Navbar */}
+          <Route
+            path="/admin/patients"
+            element={
+              <AdminNavbar>
+                <AdminPatientList />
               </AdminNavbar>
             }
           />
