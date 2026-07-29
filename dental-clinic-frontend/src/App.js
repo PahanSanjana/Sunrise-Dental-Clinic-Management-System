@@ -6,6 +6,7 @@ import DashboardPage from './pages/Admin/DashboardPage';
 import AdminPatientList from './pages/Admin/AdminPatientList';
 import PatientForm from './pages/Admin/PatientForm';
 import PatientDetails from './pages/Admin/PatientDetails';
+import AppointmentList from './pages/Admin/AppointmentList';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             }
           />
 
+          {/* Patient Management Routes */}
           <Route
             path="/admin/patients"
             element={
@@ -35,7 +37,6 @@ function App() {
             }
           />
 
-          {/* Patient Form - Add New Patient */}
           <Route
             path="/admin/patients/new"
             element={
@@ -45,7 +46,6 @@ function App() {
             }
           />
 
-          {/* Patient Form - Edit Existing Patient */}
           <Route
             path="/admin/patients/:id/edit"
             element={
@@ -55,12 +55,70 @@ function App() {
             }
           />
 
-          {/* Patient Details - View Patient Profile */}
           <Route
             path="/admin/patients/:id"
             element={
               <AdminNavbar>
                 <PatientDetails />
+              </AdminNavbar>
+            }
+          />
+
+          {/* Appointment Management Routes */}
+          <Route
+            path="/admin/appointments"
+            element={
+              <AdminNavbar>
+                <AppointmentList />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/appointments/new"
+            element={
+              <AdminNavbar>
+                <div style={{ padding: '40px', textAlign: 'center' }}>
+                  <h2>Book New Appointment</h2>
+                  <p>Appointment form coming soon...</p>
+                </div>
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/appointments/:id"
+            element={
+              <AdminNavbar>
+                <div style={{ padding: '40px', textAlign: 'center' }}>
+                  <h2>Appointment Details</h2>
+                  <p>Appointment details view coming soon...</p>
+                </div>
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/appointments/:id/edit"
+            element={
+              <AdminNavbar>
+                <div style={{ padding: '40px', textAlign: 'center' }}>
+                  <h2>Edit Appointment</h2>
+                  <p>Appointment edit form coming soon...</p>
+                </div>
+              </AdminNavbar>
+            }
+          />
+
+          {/* Billing Routes (Placeholder) */}
+          <Route
+            path="/admin/bills/new"
+            element={
+              <AdminNavbar>
+                <div style={{ padding: '40px', textAlign: 'center' }}>
+                  <h2>Generate Bill</h2>
+                  <p>Bill generation form coming soon...</p>
+                </div>
               </AdminNavbar>
             }
           />
