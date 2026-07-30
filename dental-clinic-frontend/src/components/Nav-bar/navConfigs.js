@@ -106,7 +106,7 @@ export const adminMenu = [
     icon: Receipt,
     children: [
       { id: 'bill-list', label: 'Bill List', path: '/admin/billing' },
-      { id: 'bill-generate', label: 'Generate Bill', path: '/admin/billing/generate' },
+      { id: 'bill-generate', label: 'Generate Bill', path: '/admin/bills/new' },
       { id: 'bill-details', label: 'Bill Details', path: '/admin/billing/details' },
     ],
   },

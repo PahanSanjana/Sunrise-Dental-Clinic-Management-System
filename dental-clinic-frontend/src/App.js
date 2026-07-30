@@ -10,7 +10,8 @@ import AppointmentList from './pages/Admin/AppointmentList';
 import AppointmentForm from './pages/Admin/AppointmentForm';
 import AppointmentDetails from './pages/Admin/AppointmentDetails';
 import ScheduleView from './pages/Admin/ScheduleView';
-
+import BillList from './pages/Admin/BillList';
+import BillForm from './pages/Admin/BillForm';
 
 function App() {
   return (
@@ -107,13 +108,19 @@ function App() {
 
           {/* Billing Routes (Placeholder) */}
           <Route
+            path="/admin/billing"
+            element={
+              <AdminNavbar>
+                <BillList />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
             path="/admin/bills/new"
             element={
               <AdminNavbar>
-                <div style={{ padding: '40px', textAlign: 'center' }}>
-                  <h2>Generate Bill</h2>
-                  <p>Bill generation form coming soon...</p>
-                </div>
+                <BillForm />
               </AdminNavbar>
             }
           />
