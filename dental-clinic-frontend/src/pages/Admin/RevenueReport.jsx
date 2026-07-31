@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './RevenueReport.css';
+import '../Css/RevenueReport.css';
 
 // ---------------------------------------------------------------
 // Icons
@@ -30,7 +30,7 @@ const generateRevenueData = () => {
   const startDate = new Date('2026-07-01');
   const endDate = new Date('2026-07-31');
   let currentDate = new Date(startDate);
-  
+
   while (currentDate <= endDate) {
     const day = currentDate.getDate();
     const weekday = currentDate.getDay();
@@ -107,7 +107,7 @@ const LineChart = ({ data, width = 600, height = 200 }) => {
   const padding = 20;
   const chartWidth = width - padding * 2;
   const chartHeight = height - padding * 2;
-  
+
   const points = data.map((d, i) => {
     const x = padding + (i / (data.length - 1)) * chartWidth;
     const y = padding + chartHeight - ((d.revenue - minRevenue) / range) * chartHeight;
@@ -125,13 +125,13 @@ const LineChart = ({ data, width = 600, height = 200 }) => {
           <stop offset="1" stopColor="#BDDBD1" stopOpacity="0.05" />
         </linearGradient>
       </defs>
-      
+
       {/* Area fill */}
       <polygon
         points={`${padding + chartWidth},${padding + chartHeight} ${points} ${padding},${padding + chartHeight}`}
         fill="url(#areaGradient)"
       />
-      
+
       {/* Line */}
       <polyline
         points={points}
@@ -141,7 +141,7 @@ const LineChart = ({ data, width = 600, height = 200 }) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      
+
       {/* Dots */}
       {data.map((d, i) => {
         const x = padding + (i / (data.length - 1)) * chartWidth;
@@ -158,7 +158,7 @@ const LineChart = ({ data, width = 600, height = 200 }) => {
           </g>
         );
       })}
-      
+
       {/* Y-axis labels */}
       <text x="4" y="16" fontSize="9" fill="#8a9b97">{formatCurrency(maxRevenue)}</text>
       <text x="4" y={height - 4} fontSize="9" fill="#8a9b97">{formatCurrency(minRevenue)}</text>
@@ -173,7 +173,7 @@ const BarChart = ({ data, width = 400, height = 200, labelKey, valueKey, colors 
   const chartHeight = height - padding.top - padding.bottom;
   const barWidth = Math.min(40, chartWidth / data.length * 0.6);
   const gap = (chartWidth - barWidth * data.length) / (data.length + 1);
-  
+
   const defaultColors = ['#BDDBD1', '#C7E7EC', '#E7E9E3', '#2F3E3C', '#C4954C', '#A24438', '#4A7A64', '#3A7A8A'];
 
   return (
@@ -237,21 +237,21 @@ const PieChart = ({ data, width = 240, height = 240, labelKey, valueKey }) => {
         const x2 = centerX + radius * Math.cos(endAngle);
         const y2 = centerY + radius * Math.sin(endAngle);
         const largeArc = sliceAngle > Math.PI ? 1 : 0;
-        
+
         const path = `
           M ${centerX} ${centerY}
           L ${x1} ${y1}
           A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}
           Z
         `;
-        
+
         const midAngle = startAngle + sliceAngle / 2;
         const labelX = centerX + (radius * 0.6) * Math.cos(midAngle);
         const labelY = centerY + (radius * 0.6) * Math.sin(midAngle);
         const percent = ((d[valueKey] / total) * 100).toFixed(1);
-        
+
         startAngle = endAngle;
-        
+
         return (
           <g key={i}>
             <path d={path} fill={colors[i % colors.length]} stroke="#fff" strokeWidth="2" />
@@ -281,7 +281,7 @@ const RevenueReport = () => {
 
   // Filter data based on date range
   const filteredData = useMemo(() => {
-    return REVENUE_DATA.filter(d => 
+    return REVENUE_DATA.filter(d =>
       d.date >= dateRange.from && d.date <= dateRange.to
     );
   }, [dateRange]);
@@ -292,10 +292,10 @@ const RevenueReport = () => {
     const totalAppointments = filteredData.reduce((sum, d) => sum + d.appointments, 0);
     const totalPatients = filteredData.reduce((sum, d) => sum + d.patients, 0);
     const days = filteredData.length || 1;
-    
+
     const avgPerDay = totalRevenue / days;
     const avgPerAppointment = totalAppointments > 0 ? totalRevenue / totalAppointments : 0;
-    
+
     // Calculate growth (compare last 7 days to previous 7 days)
     const sorted = [...filteredData].sort((a, b) => a.date.localeCompare(b.date));
     const recent = sorted.slice(-7);
@@ -303,7 +303,7 @@ const RevenueReport = () => {
     const recentAvg = recent.reduce((sum, d) => sum + d.revenue, 0) / (recent.length || 1);
     const prevAvg = previous.reduce((sum, d) => sum + d.revenue, 0) / (previous.length || 1);
     const growth = prevAvg > 0 ? ((recentAvg - prevAvg) / prevAvg) * 100 : 0;
-    
+
     return {
       totalRevenue,
       avgPerDay,
@@ -469,13 +469,13 @@ const RevenueReport = () => {
               <p className="rr-chart-desc">Daily revenue over the selected period</p>
             </div>
             <div className="rr-view-toggle">
-              <button 
+              <button
                 className={`rr-view-btn ${activeView === 'daily' ? 'active' : ''}`}
                 onClick={() => setActiveView('daily')}
               >
                 Daily
               </button>
-              <button 
+              <button
                 className={`rr-view-btn ${activeView === 'monthly' ? 'active' : ''}`}
                 onClick={() => setActiveView('monthly')}
               >
@@ -499,12 +499,12 @@ const RevenueReport = () => {
               </div>
             </div>
             <div className="rr-chart-body rr-pie-container">
-              <PieChart 
-                data={TREATMENT_REVENUE} 
-                width={300} 
-                height={280} 
-                labelKey="treatment" 
-                valueKey="revenue" 
+              <PieChart
+                data={TREATMENT_REVENUE}
+                width={300}
+                height={280}
+                labelKey="treatment"
+                valueKey="revenue"
               />
             </div>
             <div className="rr-chart-legend">
@@ -527,11 +527,11 @@ const RevenueReport = () => {
               </div>
             </div>
             <div className="rr-chart-body">
-              <BarChart 
-                data={DENTIST_REVENUE} 
-                width={380} 
-                height={220} 
-                labelKey="dentist" 
+              <BarChart
+                data={DENTIST_REVENUE}
+                width={380}
+                height={220}
+                labelKey="dentist"
                 valueKey="revenue"
                 colors={['#2F3E3C', '#BDDBD1', '#C7E7EC']}
               />
@@ -557,11 +557,11 @@ const RevenueReport = () => {
             </div>
           </div>
           <div className="rr-chart-body">
-            <BarChart 
-              data={MONTHLY_COMPARISON.filter(m => m.revenue > 0)} 
-              width={700} 
-              height={200} 
-              labelKey="month" 
+            <BarChart
+              data={MONTHLY_COMPARISON.filter(m => m.revenue > 0)}
+              width={700}
+              height={200}
+              labelKey="month"
               valueKey="revenue"
             />
           </div>
