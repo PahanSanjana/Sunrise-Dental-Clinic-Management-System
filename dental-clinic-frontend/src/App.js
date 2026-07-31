@@ -13,6 +13,8 @@ import ScheduleView from './pages/Admin/ScheduleView';
 import BillList from './pages/Admin/BillList';
 import BillForm from './pages/Admin/BillForm';
 import BillDetails from './pages/Admin/BillDetails';
+import ReportDashboard from './pages/Admin/ReportDashboard';
+
 
 
 function App() {
@@ -133,6 +135,15 @@ function App() {
   element={
     <AdminNavbar>
       <BillDetails />
+    </AdminNavbar>
+  }
+/>
+
+<Route
+  path="/admin/reports"
+  element={
+    <AdminNavbar>
+      <ReportDashboard />
     </AdminNavbar>
   }
 />
