@@ -107,7 +107,7 @@ export const adminMenu = [
     children: [
       { id: 'bill-list', label: 'Bill List', path: '/admin/billing' },
       { id: 'bill-generate', label: 'Generate Bill', path: '/admin/bills/new' },
-      { id: 'bill-details', label: 'Bill Details', path: '/admin/billing/details' },
+      { id: 'bill-details', label: 'Bill Details', path: '/admin/bills/:id' },
     ],
   },
   {

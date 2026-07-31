@@ -12,6 +12,8 @@ import AppointmentDetails from './pages/Admin/AppointmentDetails';
 import ScheduleView from './pages/Admin/ScheduleView';
 import BillList from './pages/Admin/BillList';
 import BillForm from './pages/Admin/BillForm';
+import BillDetails from './pages/Admin/BillDetails';
+
 
 function App() {
   return (
@@ -124,6 +126,16 @@ function App() {
               </AdminNavbar>
             }
           />
+
+
+          <Route
+  path="/admin/bills/:id"
+  element={
+    <AdminNavbar>
+      <BillDetails />
+    </AdminNavbar>
+  }
+/>
 
           {/* Fallback for any other admin routes */}
           <Route
