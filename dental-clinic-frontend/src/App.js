@@ -14,6 +14,8 @@ import BillList from './pages/Admin/BillList';
 import BillForm from './pages/Admin/BillForm';
 import BillDetails from './pages/Admin/BillDetails';
 import ReportDashboard from './pages/Admin/ReportDashboard';
+import RevenueReport from './pages/Admin/RevenueReport';
+
 
 
 
@@ -148,6 +150,14 @@ function App() {
   }
 />
 
+<Route
+  path="/admin/reports/revenue"
+  element={
+    <AdminNavbar>
+      <RevenueReport />
+    </AdminNavbar>
+  }
+/>
           {/* Fallback for any other admin routes */}
           <Route
             path="/admin/*"
