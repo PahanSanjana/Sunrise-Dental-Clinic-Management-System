@@ -128,8 +128,8 @@ export const adminMenu = [
     icon: UserCog,
     children: [
       { id: 'staff-list', label: 'Staff List', path: '/admin/staff' },
-      { id: 'staff-add', label: 'Add Staff', path: '/admin/staff/add' },
-      { id: 'staff-details', label: 'Staff Details', path: '/admin/staff/details' },
+      { id: 'staff-add', label: 'Add Staff', path: '/admin/staff/new' },
+      { id: 'staff-details', label: 'Staff Details', path: '/admin/staff/:id' },
     ],
   },
   {

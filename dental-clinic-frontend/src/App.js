@@ -18,6 +18,7 @@ import RevenueReport from './pages/Admin/RevenueReport';
 import ScheduleReport from './pages/Admin/ScheduleReport';
 import StaffList from './pages/Admin/StaffList';
 import StaffForm from './pages/Admin/StaffForm';
+import StaffDetails from './pages/Admin/StaffDetails';
 
 
 
@@ -195,6 +196,14 @@ function App() {
             }
           />
 
+          <Route
+            path="/admin/staff/:id"
+            element={
+              <AdminNavbar>
+                <StaffDetails />
+              </AdminNavbar>
+            }
+          />
 
 
           {/* Fallback for any other admin routes */}
