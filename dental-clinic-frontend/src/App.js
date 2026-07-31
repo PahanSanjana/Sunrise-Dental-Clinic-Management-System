@@ -15,6 +15,7 @@ import BillForm from './pages/Admin/BillForm';
 import BillDetails from './pages/Admin/BillDetails';
 import ReportDashboard from './pages/Admin/ReportDashboard';
 import RevenueReport from './pages/Admin/RevenueReport';
+import ScheduleReport from './pages/Admin/ScheduleReport';
 
 
 
@@ -133,31 +134,41 @@ function App() {
 
 
           <Route
-  path="/admin/bills/:id"
-  element={
-    <AdminNavbar>
-      <BillDetails />
-    </AdminNavbar>
-  }
-/>
+            path="/admin/bills/:id"
+            element={
+              <AdminNavbar>
+                <BillDetails />
+              </AdminNavbar>
+            }
+          />
 
-<Route
-  path="/admin/reports"
-  element={
-    <AdminNavbar>
-      <ReportDashboard />
-    </AdminNavbar>
-  }
-/>
+          <Route
+            path="/admin/reports"
+            element={
+              <AdminNavbar>
+                <ReportDashboard />
+              </AdminNavbar>
+            }
+          />
 
-<Route
-  path="/admin/reports/revenue"
-  element={
-    <AdminNavbar>
-      <RevenueReport />
-    </AdminNavbar>
-  }
-/>
+          <Route
+            path="/admin/reports/revenue"
+            element={
+              <AdminNavbar>
+                <RevenueReport />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/reports/schedule"
+            element={
+              <AdminNavbar>
+                <ScheduleReport />
+              </AdminNavbar>
+            }
+          />
+
           {/* Fallback for any other admin routes */}
           <Route
             path="/admin/*"
