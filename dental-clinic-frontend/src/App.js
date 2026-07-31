@@ -19,6 +19,7 @@ import ScheduleReport from './pages/Admin/ScheduleReport';
 import StaffList from './pages/Admin/StaffList';
 import StaffForm from './pages/Admin/StaffForm';
 import StaffDetails from './pages/Admin/StaffDetails';
+import DentistList from './pages/Admin/DentistList';
 
 
 
@@ -201,6 +202,15 @@ function App() {
             element={
               <AdminNavbar>
                 <StaffDetails />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/dentists"
+            element={
+              <AdminNavbar>
+                <DentistList />
               </AdminNavbar>
             }
           />
