@@ -25,6 +25,8 @@ import TreatmentList from './pages/Admin/TreatmentList';
 import TreatmentForm from './pages/Admin/TreatmentForm';
 import ClinicSettings from './pages/Admin/ClinicSettings';
 import Permissions from './pages/Admin/Permissions';
+import SystemConfig from './pages/Admin/SystemConfig';
+import ActivityLog from './pages/Admin/ActivityLog';
 
 
 
@@ -284,6 +286,22 @@ function App() {
             }
           />
 
+          <Route
+            path="/admin/settings/system"
+            element={
+              <AdminNavbar>
+                <SystemConfig />
+              </AdminNavbar>
+            }
+          />
+          <Route
+            path="/admin/audit/activity"
+            element={
+              <AdminNavbar>
+                <ActivityLog />
+              </AdminNavbar>
+            }
+          />
 
 
           {/* Fallback for any other admin routes */}

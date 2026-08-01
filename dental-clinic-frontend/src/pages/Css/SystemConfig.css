@@ -1,0 +1,1265 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --ink: #2F3E3C;
+    --ink-soft: rgba(47, 62, 60, 0.65);
+    --ink-faint: rgba(47, 62, 60, 0.38);
+    --ink-hair: rgba(47, 62, 60, 0.12);
+    --mist: #BDDBD1;
+    --sage: #E7E9E3;
+    --cream: #FBF9F1;
+    --pale-mint: #E8F0F1;
+    --sky: #C7E7EC;
+    --amber: #C4954C;
+    --danger: #A24438;
+    --success: #4A7A64;
+    --info: #3A7A8A;
+
+    --font-display: 'Fraunces', 'Georgia', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------------------------------------------------------------
+   Page Container
+   --------------------------------------------------------------- */
+.sc-page {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(160deg, var(--cream) 0%, var(--sage) 45%, var(--pale-mint) 100%);
+    font-family: var(--font-body);
+    color: var(--ink);
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+.sc-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sc-blob-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--mist), transparent 70%);
+    top: -150px;
+    right: -100px;
+}
+
+.sc-blob-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, var(--sky), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+}
+
+.sc-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ---------------------------------------------------------------
+   Glass Card
+   --------------------------------------------------------------- */
+.glass-card {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px -15px rgba(47, 62, 60, 0.12);
+    transition: all 0.3s ease;
+}
+
+/* ---------------------------------------------------------------
+   Header
+   --------------------------------------------------------------- */
+.sc-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sc-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    background: transparent;
+    border: none;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.sc-back-btn:hover {
+    color: var(--ink);
+}
+
+.sc-back-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.sc-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sc-header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.sc-header-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--mist), var(--sky));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sc-header-icon svg {
+    width: 26px;
+    height: 26px;
+    color: var(--ink);
+}
+
+.sc-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.sc-subtitle {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 2px 0 0;
+}
+
+.sc-header-meta {
+    margin-top: 4px;
+}
+
+.sc-last-updated {
+    font-size: 13px;
+    color: var(--ink-faint);
+}
+
+.sc-header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------------
+   Buttons
+   --------------------------------------------------------------- */
+.sc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(47, 62, 60, 0.14);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-height: 44px;
+    white-space: nowrap;
+}
+
+.sc-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.sc-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.sc-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.sc-btn.primary {
+    background: linear-gradient(150deg, var(--ink) 0%, #3d534f 100%);
+    color: var(--cream);
+    border: none;
+    box-shadow: 0 10px 24px -6px rgba(47, 62, 60, 0.35);
+}
+
+.sc-btn.primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px -8px rgba(47, 62, 60, 0.45);
+}
+
+.sc-btn.secondary {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(47, 62, 60, 0.12);
+}
+
+.sc-btn.secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.sc-btn.small {
+    padding: 6px 14px;
+    font-size: 12px;
+    min-height: 32px;
+    border-radius: 10px;
+}
+
+.sc-btn.small svg {
+    width: 14px;
+    height: 14px;
+}
+
+.sc-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------------------------------------------------------------
+   Banner
+   --------------------------------------------------------------- */
+.sc-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+.sc-banner.success {
+    background: rgba(74, 122, 100, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(74, 122, 100, 0.2);
+}
+
+.sc-banner.success svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--success);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------------------------------------
+   Content Layout
+   --------------------------------------------------------------- */
+.sc-content {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+}
+
+/* ---------------------------------------------------------------
+   Sidebar
+   --------------------------------------------------------------- */
+.sc-sidebar {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 12px;
+}
+
+.sc-sidebar-title {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ink-soft);
+    padding: 8px 12px 12px;
+    border-bottom: 1px solid var(--ink-hair);
+    margin-bottom: 8px;
+}
+
+.sc-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sc-sidebar-item svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.sc-sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--ink);
+}
+
+.sc-sidebar-item.active {
+    background: var(--ink);
+    color: var(--cream);
+    box-shadow: 0 4px 12px rgba(47, 62, 60, 0.2);
+}
+
+/* ---------------------------------------------------------------
+   Main Content
+   --------------------------------------------------------------- */
+.sc-main {
+    min-width: 0;
+}
+
+.sc-form-container {
+    padding: 28px 32px;
+}
+
+/* ---------------------------------------------------------------
+   Section
+   --------------------------------------------------------------- */
+.sc-section {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sc-section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(47, 62, 60, 0.08);
+}
+
+.sc-section-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, var(--mist), var(--sky));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sc-section-icon svg {
+    width: 19px;
+    height: 19px;
+    color: var(--ink);
+}
+
+.sc-section-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 2px 0;
+}
+
+.sc-section-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+/* ---------------------------------------------------------------
+   Form Grid
+   --------------------------------------------------------------- */
+.sc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+}
+
+.sc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sc-field.span-2 {
+    grid-column: span 2;
+}
+
+.sc-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink-soft);
+}
+
+.sc-label .req {
+    color: var(--danger);
+    margin-left: 2px;
+}
+
+/* ---------------------------------------------------------------
+   Inputs
+   --------------------------------------------------------------- */
+.sc-input,
+.sc-select,
+.sc-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(47, 62, 60, 0.14);
+    background: rgba(255, 255, 255, 0.55);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.sc-input:focus,
+.sc-select:focus,
+.sc-textarea:focus {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: var(--mist);
+    box-shadow: 0 0 0 4px rgba(199, 231, 236, 0.35);
+}
+
+.sc-input.has-error,
+.sc-select.has-error,
+.sc-textarea.has-error {
+    border-color: var(--danger);
+    background: rgba(162, 68, 56, 0.06);
+}
+
+.sc-textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.6;
+}
+
+.sc-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232F3E3C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.sc-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sc-field-icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: var(--ink-faint);
+    pointer-events: none;
+}
+
+.sc-input.with-icon {
+    padding-left: 42px;
+}
+
+.sc-textarea.with-icon {
+    padding-left: 42px;
+}
+
+.sc-input-prefix {
+    position: absolute;
+    left: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    font-size: 14px;
+}
+
+.sc-input.with-prefix {
+    padding-left: 42px;
+}
+
+.sc-input-suffix {
+    position: absolute;
+    right: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    font-size: 14px;
+}
+
+.sc-error-text {
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 2px;
+}
+
+/* ---------------------------------------------------------------
+   Toggle Switch
+   --------------------------------------------------------------- */
+.sc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sc-toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.sc-toggle-slider {
+    width: 36px;
+    height: 20px;
+    background: rgba(47, 62, 60, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sc-toggle-slider::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.sc-toggle input:checked+.sc-toggle-slider {
+    background: var(--ink);
+}
+
+.sc-toggle input:checked+.sc-toggle-slider::after {
+    transform: translateX(16px);
+}
+
+.sc-toggle-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+}
+
+.sc-toggle input:checked~.sc-toggle-label {
+    color: var(--ink);
+}
+
+/* ---------------------------------------------------------------
+   Checkbox
+   --------------------------------------------------------------- */
+.sc-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink);
+}
+
+.sc-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--ink);
+    cursor: pointer;
+}
+
+.sc-checkbox-label {
+    user-select: none;
+}
+
+.sc-checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+}
+
+/* ---------------------------------------------------------------
+   Logo Upload
+   --------------------------------------------------------------- */
+.sc-logo-upload {
+    position: relative;
+    display: inline-block;
+}
+
+.sc-logo-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    border: 2px dashed var(--ink-hair);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.sc-logo-preview:hover {
+    border-color: var(--mist);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sc-logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.sc-logo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--ink-soft);
+}
+
+.sc-logo-placeholder svg {
+    width: 32px;
+    height: 32px;
+}
+
+.sc-logo-placeholder span {
+    font-size: 12px;
+}
+
+.sc-logo-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------
+   Business Hours
+   --------------------------------------------------------------- */
+.sc-hours-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sc-hour-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 1px solid var(--ink-hair);
+}
+
+.sc-day-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+    min-width: 90px;
+}
+
+.sc-hour-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.sc-hour-input {
+    width: 100px;
+    padding: 6px 10px;
+    font-size: 13px;
+}
+
+.sc-hour-sep {
+    color: var(--ink-soft);
+    font-size: 13px;
+}
+
+/* ---------------------------------------------------------------
+   Break Times
+   --------------------------------------------------------------- */
+.sc-break-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 1px solid var(--ink-hair);
+    margin-bottom: 8px;
+}
+
+.sc-break-fields {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sc-break-remove {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(162, 68, 56, 0.08);
+    color: var(--danger);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.sc-break-remove:hover {
+    background: rgba(162, 68, 56, 0.16);
+}
+
+/* ---------------------------------------------------------------
+   Password Policy
+   --------------------------------------------------------------- */
+.sc-password-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-password-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-password-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Session Settings
+   --------------------------------------------------------------- */
+.sc-session-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-session-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-session-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Reminder Settings
+   --------------------------------------------------------------- */
+.sc-reminder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+}
+
+.sc-reminder-timing {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-reminder-timing .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Cancellation Policy
+   --------------------------------------------------------------- */
+.sc-cancellation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-cancellation-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-cancellation-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Email Configuration
+   --------------------------------------------------------------- */
+.sc-email-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-email-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-email-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+.sc-email-field.span-2 {
+    grid-column: span 2;
+}
+
+/* ---------------------------------------------------------------
+   SMS Configuration
+   --------------------------------------------------------------- */
+.sc-sms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-sms-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-sms-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+.sc-sms-field.span-2 {
+    grid-column: span 2;
+}
+
+/* ---------------------------------------------------------------
+   Notification Types
+   --------------------------------------------------------------- */
+.sc-notification-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+}
+
+.sc-notification-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+.sc-notification-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    flex: 1;
+    min-width: 100px;
+}
+
+.sc-notification-item .sc-checkbox {
+    font-size: 13px;
+}
+
+/* ---------------------------------------------------------------
+   2FA Settings
+   --------------------------------------------------------------- */
+.sc-2fa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-2fa-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-2fa-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Backup Settings
+   --------------------------------------------------------------- */
+.sc-backup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-backup-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-backup-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+.sc-backup-field.span-2 {
+    grid-column: span 2;
+}
+
+/* ---------------------------------------------------------------
+   Logging Settings
+   --------------------------------------------------------------- */
+.sc-logging-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+}
+
+.sc-logging-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-logging-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Maintenance Settings
+   --------------------------------------------------------------- */
+.sc-maintenance-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sc-maintenance-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-maintenance-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Integration Settings
+   --------------------------------------------------------------- */
+.sc-analytics-grid,
+.sc-calendar-grid,
+.sc-payment-grid,
+.sc-hicaps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.sc-analytics-field,
+.sc-calendar-field,
+.sc-payment-field,
+.sc-hicaps-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sc-analytics-field .sc-label,
+.sc-calendar-field .sc-label,
+.sc-payment-field .sc-label,
+.sc-hicaps-field .sc-label {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+
+.sc-analytics-field.span-2,
+.sc-calendar-field.span-2,
+.sc-payment-field.span-2 {
+    grid-column: span 2;
+}
+
+/* ---------------------------------------------------------------
+   Responsive Design
+   --------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .sc-content {
+        grid-template-columns: 1fr;
+    }
+
+    .sc-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 8px;
+        position: static;
+    }
+
+    .sc-sidebar-title {
+        display: none;
+    }
+
+    .sc-sidebar-item {
+        flex: 1;
+        min-width: 100px;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 820px) {
+    .sc-inner {
+        padding: 32px 20px;
+    }
+
+    .sc-header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sc-header-actions {
+        width: 100%;
+    }
+
+    .sc-header-actions .sc-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .sc-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .sc-field.span-2 {
+        grid-column: span 1;
+    }
+
+    .sc-form-container {
+        padding: 20px;
+    }
+
+    .sc-checkbox-grid,
+    .sc-password-grid,
+    .sc-session-grid,
+    .sc-reminder-grid,
+    .sc-cancellation-grid,
+    .sc-email-grid,
+    .sc-sms-grid,
+    .sc-notification-grid,
+    .sc-backup-grid,
+    .sc-logging-grid,
+    .sc-analytics-grid,
+    .sc-calendar-grid,
+    .sc-payment-grid,
+    .sc-hicaps-grid,
+    .sc-2fa-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sc-email-field.span-2,
+    .sc-sms-field.span-2,
+    .sc-backup-field.span-2,
+    .sc-analytics-field.span-2,
+    .sc-calendar-field.span-2,
+    .sc-payment-field.span-2 {
+        grid-column: span 1;
+    }
+
+    .sc-hour-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .sc-hour-controls {
+        justify-content: center;
+    }
+
+    .sc-notification-item {
+        flex-wrap: wrap;
+    }
+
+    .sc-notification-label {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sc-inner {
+        padding: 24px 14px;
+    }
+
+    .sc-title {
+        font-size: 26px;
+    }
+
+    .sc-form-container {
+        padding: 16px;
+    }
+
+    .sc-header-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .sc-header-actions {
+        flex-direction: column;
+    }
+
+    .sc-header-actions .sc-btn {
+        width: 100%;
+    }
+
+    .sc-sidebar-item {
+        flex: 1;
+        min-width: 60px;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .sc-sidebar-item span {
+        display: none;
+    }
+
+    .sc-hour-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sc-hour-input {
+        width: 100%;
+    }
+
+    .sc-break-fields {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sc-break-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sc-notification-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+}
