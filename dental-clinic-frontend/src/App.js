@@ -27,6 +27,7 @@ import ClinicSettings from './pages/Admin/ClinicSettings';
 import Permissions from './pages/Admin/Permissions';
 import SystemConfig from './pages/Admin/SystemConfig';
 import ActivityLog from './pages/Admin/ActivityLog';
+import LoginHistory from './pages/Admin/LoginHistory';
 
 
 
@@ -299,6 +300,15 @@ function App() {
             element={
               <AdminNavbar>
                 <ActivityLog />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/audit/login"
+            element={
+              <AdminNavbar>
+                <LoginHistory />
               </AdminNavbar>
             }
           />
