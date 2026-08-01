@@ -147,7 +147,7 @@ export const adminMenu = [
     icon: Pill,
     children: [
       { id: 'treatment-list', label: 'Treatment List', path: '/admin/treatments' },
-      { id: 'treatment-add', label: 'Add Treatment', path: '/admin/treatments/add' },
+      { id: 'treatment-add', label: 'Add Treatment', path: '/admin/treatments/new' },
     ],
   },
   {

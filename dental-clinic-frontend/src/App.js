@@ -22,6 +22,7 @@ import StaffDetails from './pages/Admin/StaffDetails';
 import DentistList from './pages/Admin/DentistList';
 import DentistForm from './pages/Admin/DentistForm';
 import TreatmentList from './pages/Admin/TreatmentList';
+import TreatmentForm from './pages/Admin/TreatmentForm';
 
 
 
@@ -241,6 +242,24 @@ function App() {
             element={
               <AdminNavbar>
                 <TreatmentList />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/treatments/new"
+            element={
+              <AdminNavbar>
+                <TreatmentForm />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/treatments/:id/edit"
+            element={
+              <AdminNavbar>
+                <TreatmentForm />
               </AdminNavbar>
             }
           />
