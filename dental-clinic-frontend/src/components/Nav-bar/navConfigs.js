@@ -138,7 +138,7 @@ export const adminMenu = [
     icon: Stethoscope,
     children: [
       { id: 'dentist-list', label: 'Dentist List', path: '/admin/dentists' },
-      { id: 'dentist-add', label: 'Add Dentist', path: '/admin/dentists/add' },
+      { id: 'dentist-add', label: 'Add Dentist', path: '/admin/dentists/new' },
     ],
   },
   {

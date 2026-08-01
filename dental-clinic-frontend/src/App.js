@@ -20,6 +20,8 @@ import StaffList from './pages/Admin/StaffList';
 import StaffForm from './pages/Admin/StaffForm';
 import StaffDetails from './pages/Admin/StaffDetails';
 import DentistList from './pages/Admin/DentistList';
+import DentistForm from './pages/Admin/DentistForm';
+import TreatmentList from './pages/Admin/TreatmentList';
 
 
 
@@ -214,6 +216,35 @@ function App() {
               </AdminNavbar>
             }
           />
+
+          <Route
+            path="/admin/dentists/new"
+            element={
+              <AdminNavbar>
+                <DentistForm />
+              </AdminNavbar>
+            }
+          />
+
+
+          <Route
+            path="/admin/dentists/:id/edit"
+            element={
+              <AdminNavbar>
+                <DentistForm />
+              </AdminNavbar>
+            }
+          />
+
+          <Route
+            path="/admin/treatments"
+            element={
+              <AdminNavbar>
+                <TreatmentList />
+              </AdminNavbar>
+            }
+          />
+
 
 
           {/* Fallback for any other admin routes */}
