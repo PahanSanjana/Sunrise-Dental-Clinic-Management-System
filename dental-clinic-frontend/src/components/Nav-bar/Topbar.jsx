@@ -3,7 +3,7 @@ import { Search, Bell, ChevronDown, User, Settings, LogOut } from 'lucide-react'
 import './Topbar.css';
 
 /**
- * Radiant — shared glass topbar
+ * Sunrise  — shared glass topbar
  *
  * Props
  * ------

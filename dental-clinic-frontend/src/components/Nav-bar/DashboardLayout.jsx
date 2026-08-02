@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 
 /**
- * Radiant — dashboard shell
+ * Sunrise  — dashboard shell
  * Wraps any page content with the role's sidebar + matching topbar.
  *
  * Usage:
@@ -19,7 +19,7 @@ import Topbar from './Topbar';
  */
 const DashboardLayout = ({
   roleLabel,
-  clinicName = 'Radiant Dental',
+  clinicName = 'Sunrise  Dental',
   menuSections,
   meta,
   activePath,
